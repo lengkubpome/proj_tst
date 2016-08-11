@@ -3,8 +3,7 @@ import { WeightingService } from './weighting.service';
 
 @Component({
     selector: 'weighting',
-    templateUrl: '../app/weighting/weighting.component.html',
-    providers: [WeightingService]
+    templateUrl: 'app/weighting/weighting.component.html'
 })
 export class WeightingComponent implements OnInit {
     listWeightIn: Object[];
