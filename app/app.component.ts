@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: `<h1>My First Angular 2 App</h1>`
+    template: `
+    <app-navbar></app-navbar>
+     <router-outlet></router-outlet>
+    `
 })
 export class AppComponent implements OnInit {
     a = ['moe', 'larry', 'curly', 'larry'];
@@ -14,8 +17,5 @@ export class AppComponent implements OnInit {
         // console.log(_.keys(this.c));
 
     }
-
-
-
 }
 
