@@ -1,0 +1,95 @@
+<div class="docs-header p-t" id="content">
+  <div class="container clearfix ">
+    <h1>ระบบชั่งน้ำหนัก</h1>
+
+  </div>
+</div>
+
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="col-sm-3">
+
+      <!--search bar-->
+      <div class="form-group  has-feedback">
+        <input type="text" class="form-control " placeholder="ค้นหาทะเบียนรถ">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+      </div>
+
+      <div class="hr-divider ">
+        <h3 class="hr-divider-content hr-divider-heading">
+          <h4>รายการรถชั่งเข้า <span class="label label-warning">3</span></h4>
+        </h3>
+      </div>
+
+
+      <!--//////////////////////////////////////////////////-->
+
+      <!--<my-scrollbar>-->
+        <div class=" list-weight-in ">
+          <div class="list-group">
+            <a class="list-group-item" style="cursor: pointer;" *ngFor="let weightIn of listWeightIn">
+              <h4 class="list-group-item-heading">ทะเบียน: <strong>{{weightIn.id}}</strong></h4>
+              <p class="list-group-item-text">สินค้า: {{weightIn.product}}</p>
+            </a>
+
+          </div>
+        </div>
+      <!--</my-scrollbar>-->
+      <!--======================================================-->
+
+    </div>
+
+
+    <div class="col-sm-9">
+
+      <div class="clearfix">
+
+        <button type="button" class="btn btn-default  m-l pull-right" aria-label="Left Align">
+
+
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span></button>
+
+        <button type="button" class="btn btn-primary pull-right">
+        <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
+
+      </div>
+
+      <div class="jumbotron m-t">
+        <h1>คลิกเพื่อบันทึกรถชั่งเข้า!!</h1>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!--
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#section1">Section 1</a></li>
+          <li><a href="#section2">Section 2</a></li>
+          <li><a href="#section3">Section 3</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Section 4-1</a></li>
+              <li><a href="#section42">Section 4-2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>-->

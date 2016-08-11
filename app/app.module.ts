@@ -2,17 +2,22 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 
+
 import { AppComponent }  from './app.component';
 import { routing,
   appRoutingProviders } from './app.routing';
 
 import { NavbarComponent } from './navbar.component';
+import { WeightingModule } from './weighting/weighting.module';
+import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
+    WeightingModule,
+    HeroesModule
   ],
   declarations: [
     AppComponent,
