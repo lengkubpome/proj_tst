@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightingService } from './weighting.service';
+import { MODAL_DIRECTIVES } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
     selector: 'weighting',

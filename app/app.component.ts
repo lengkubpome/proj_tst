@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
     selector: 'my-app',
     template: `
@@ -11,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
     <div class='container'>
      <router-outlet></router-outlet>
      </div>
+
     `
 })
 export class AppComponent implements OnInit {
