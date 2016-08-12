@@ -1,4 +1,4 @@
-<div class="docs-header p-t" id="content">
+<div class="docs-header" id="content">
   <div class="container clearfix ">
     <h1>ระบบชั่งน้ำหนัก</h1>
 
@@ -6,38 +6,40 @@
 </div>
 
 <div class="container">
-  <hr>
   <div class="row">
     <div class="col-xs-14 col-sm-6 col-md-9">
 
       <div class=" clearfix">
-        <div class="row">
-          <button type="button" class="btn btn-primary " >
+        <div>
+          <button type="button" class="btn btn-primary ">
           <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
 
           <button type="button" class="btn btn-default  pull-right" aria-label="Left Align">
           <span class="glyphicon glyphicon-time" aria-hidden="true"></span></button>
         </div>
         <br>
-        <div class="row">
-          <div class="jumbotron ">
-            <h1>คลิกเพื่อบันทึกรถชั่งเข้า!!</h1>
+
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title ">Card title</h4>
+            <p class="card-text">กรุณาเลือกรายการชั่งเข้า</p>
+            
+            <a href="#" class="card-link">Go somewhere</a>
           </div>
         </div>
+        
+
 
       </div>
     </div>
     <!--end column-->
 
     <!-- Side right-->
-    <div class="col-xs-4 col-md-3">
-
-
-      <div class="hr-divider ">
-        <h3 class="hr-divider-content hr-divider-heading">
-          <h4>รายการรถชั่งเข้า <span class="label label-warning">3</span></h4>
-        </h3>
+    <div class="col-xs-14 col-sm-6 col-md-3">
+      <div class="page-header" style="margin: 0px 0 18px; ">
+        <h4>List of Car-In <span class="badge">3</span></h4>
       </div>
+
       <!--search bar-->
       <div class="form-group  has-feedback">
         <input type="text" class="form-control " placeholder="ค้นหาทะเบียนรถ">
@@ -47,9 +49,13 @@
       <!--<my-scrollbar>-->
       <div class=" list-weight-in ">
         <div class="list-group">
-          <a class="list-group-item" style="cursor: pointer;" *ngFor="let weightIn of listWeightIn">
-            <h5 class="list-group-item-heading">ทะเบียน: <strong>{{weightIn.id}}</strong></h5>
-            <p class="list-group-item-text">สินค้า: {{weightIn.product}}</p>
+          <a class="list-group-item" style="cursor: pointer;" 
+            *ngFor="let weightIn of listWeightIn"
+            [class.selected]="isSelected(weightIn.product)"
+            (dblclick)="onSelect()"
+            >
+            <span class="badge">เหล็ก</span>
+            <p class="list-group-item-heading">ทะเบียน: {{weightIn.id}}</p>
           </a>
 
         </div>

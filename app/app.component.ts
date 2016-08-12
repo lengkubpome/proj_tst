@@ -9,9 +9,7 @@ import { Component, OnInit } from '@angular/core';
         <li routerLinkActive="active"><a [routerLink]="['/customers']" >จัดการลูกค้า</a></li>
         <li routerLinkActive="active"><a [routerLink]="['/heroes']" >Heroes</a></li>
     </app-navbar>
-    <div class='container'>
      <router-outlet></router-outlet>
-     </div>
 
     `
 })

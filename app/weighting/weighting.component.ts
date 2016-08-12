@@ -1,18 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { Subscription }       from 'rxjs/Subscription';
 import { WeightingService } from './weighting.service';
-import { MODAL_DIRECTIVES } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
     selector: 'weighting',
     templateUrl: 'app/weighting/weighting.component.html'
 })
-export class WeightingComponent implements OnInit {
+export class WeightingComponent implements OnInit, OnDestroy {
     listWeightIn: Object[];
+    private sub: Subscription;
 
-    constructor(weightingService: WeightingService) {
-        this.listWeightIn = weightingService.getWeightIn();
+    constructor(
+        private weightingService: WeightingService
+    ) {
+        
     }
     ngOnInit() {
+        this.listWeightIn = this.weightingService.getWeightIn();
+    }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
+     isSelected(weightIn: Object) { return console.log(weightIn );}
+
+    onSelect() {
+        console.log("Selected!!");
 
     }
 }

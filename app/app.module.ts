@@ -2,12 +2,11 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 
-
 import { AppComponent }  from './app.component';
 import { routing,
   appRoutingProviders } from './app.routing';
   
-
+import { WeightingComponent } from './weighting/weighting.component';
 import { NavbarComponent } from './navbar.component';
 import { WeightingModule } from './weighting/weighting.module';
 import { HeroesModule } from './heroes/heroes.module';
@@ -22,7 +21,8 @@ import { HeroesModule } from './heroes/heroes.module';
   ],
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    WeightingComponent
   ],
   providers: [
     appRoutingProviders
@@ -30,30 +30,3 @@ import { HeroesModule } from './heroes/heroes.module';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-
-// import { AppComponent }       from './app.component';
-// import { routing,
-//          appRoutingProviders } from './app.routing';
-
-// import { HeroListComponent }    from './hero-list.component';
-// import { CrisisListComponent }  from './crisis-list.component';
-
-// @NgModule({
-//   imports: [
-//     BrowserModule,
-//     FormsModule,
-//     routing
-//   ],
-//   declarations: [
-//     AppComponent,
-//     HeroListComponent,
-//     CrisisListComponent
-//   ],
-//   providers: [
-//     appRoutingProviders
-//   ],
-//   bootstrap: [ AppComponent ]
-// })
-
