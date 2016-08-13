@@ -5,7 +5,10 @@ import { FormsModule }    from '@angular/forms';
 import { AppComponent }  from './app.component';
 import { routing,
   appRoutingProviders } from './app.routing';
-  
+
+// Shared Component
+import { ScrollbarComponent } from './shared/scrollbar.component';
+// Main Component
 import { WeightingComponent } from './weighting/weighting.component';
 import { NavbarComponent } from './navbar.component';
 import { WeightingModule } from './weighting/weighting.module';
@@ -20,6 +23,9 @@ import { HeroesModule } from './heroes/heroes.module';
     HeroesModule
   ],
   declarations: [
+    //Shared Component
+    ScrollbarComponent,
+    // Main Component
     AppComponent,
     NavbarComponent,
     WeightingComponent

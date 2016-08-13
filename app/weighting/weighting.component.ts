@@ -1,32 +1,43 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription }       from 'rxjs/Subscription';
-import { WeightingService } from './weighting.service';
+import { WeightingCar, WeightingService } from './weighting.service';
 
 @Component({
     selector: 'weighting',
-    templateUrl: 'app/weighting/weighting.component.html'
+    templateUrl: 'app/weighting/weighting.component.html',
 })
 export class WeightingComponent implements OnInit, OnDestroy {
-    listWeightIn: Object[];
-    private sub: Subscription;
+    private listWeightIn: WeightingCar[];
 
-    constructor(
-        private weightingService: WeightingService
-    ) {
-        
+    weightInCount:number;
+    selectCar: WeightingCar;
+    selectCarId: string;
+    selectCarProduct: string;
+
+    constructor(private _weightingService: WeightingService) {
+ 
     }
+
+
+
+    getListWeightIn() {
+        this._weightingService.getListWiegtingIn()
+            .then(listWeightIn => this.listWeightIn = listWeightIn);
+                
+    }
+
     ngOnInit() {
-        this.listWeightIn = this.weightingService.getWeightIn();
+        this.getListWeightIn();
+
     }
     ngOnDestroy() {
-        this.sub.unsubscribe();
+
     }
 
-     isSelected(weightIn: Object) { return console.log(weightIn );}
-
-    onSelect() {
-        console.log("Selected!!");
+    onSelect(weightingIn: WeightingCar) {
+        this.selectCarId = weightingIn.carId;
+        this.selectCarProduct = weightingIn.product;
 
     }
 }

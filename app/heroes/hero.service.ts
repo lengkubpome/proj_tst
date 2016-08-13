@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 
 export class Hero {
-  constructor(public id: number, public name: string) { }
+  constructor(
+    public id: number,
+    public name: string) { }
 }
 
 let HEROES = [

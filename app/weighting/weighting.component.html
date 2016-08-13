@@ -21,8 +21,8 @@
 
         <div class="card">
           <div class="card-block">
-            <h4 class="card-title ">Card title</h4>
-            <p class="card-text">กรุณาเลือกรายการชั่งเข้า</p>
+            <h4 class="card-title ">{{selectCarId}}</h4>
+            <p class="card-text">{{selectCarProduct}}</p>
             
             <a href="#" class="card-link">Go somewhere</a>
           </div>
@@ -37,7 +37,7 @@
     <!-- Side right-->
     <div class="col-xs-14 col-sm-6 col-md-3">
       <div class="page-header" style="margin: 0px 0 18px; ">
-        <h4>List of Car-In <span class="badge">3</span></h4>
+        <h4>List of Car-In <span class="badge"></span></h4>
       </div>
 
       <!--search bar-->
@@ -47,52 +47,21 @@
       </div>
 
       <!--<my-scrollbar>-->
-      <div class=" list-weight-in ">
+      <scrollbar class=" list-weight-in ">
         <div class="list-group">
           <a class="list-group-item" style="cursor: pointer;" 
             *ngFor="let weightIn of listWeightIn"
-            [class.selected]="isSelected(weightIn.product)"
-            (dblclick)="onSelect()"
+            (click)="onSelect(weightIn)"
             >
             <span class="badge">เหล็ก</span>
-            <p class="list-group-item-heading">ทะเบียน: {{weightIn.id}}</p>
+            <p class="list-group-item-heading">ทะเบียน: {{weightIn.carId}}</p>
           </a>
 
         </div>
-      </div>
+      </scrollbar>
       <!--</my-scrollbar>-->
 
     </div>
     <!--end column-->
   </div>
 </div>
-
-<!--
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="#section1">Section 1</a></li>
-          <li><a href="#section2">Section 2</a></li>
-          <li><a href="#section3">Section 3</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#section41">Section 4-1</a></li>
-              <li><a href="#section42">Section 4-2</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>-->
