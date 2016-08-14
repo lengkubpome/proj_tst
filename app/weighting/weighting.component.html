@@ -18,11 +18,11 @@
           <span class="glyphicon glyphicon-time" aria-hidden="true"></span></button>
         </div>
         <br>
-
+        {{selectCar.id}}
         <div class="card">
           <div class="card-block">
-            <h4 class="card-title ">{{selectCarId}}</h4>
-            <p class="card-text">{{selectCarProduct}}</p>
+            <h4 class="card-title ">{{selectCar.carId}}</h4>
+            <p class="card-text">{{selectCar.product}}</p>
             
             <a href="#" class="card-link">Go somewhere</a>
           </div>
@@ -37,7 +37,7 @@
     <!-- Side right-->
     <div class="col-xs-14 col-sm-6 col-md-3">
       <div class="page-header" style="margin: 0px 0 18px; ">
-        <h4>List of Car-In <span class="badge"></span></h4>
+        <h4>List of Car-In <span class="badge">{{weightInLenth}}</span></h4>
       </div>
 
       <!--search bar-->
@@ -47,7 +47,7 @@
       </div>
 
       <!--<my-scrollbar>-->
-      <scrollbar class=" list-weight-in ">
+      <scrollbar class=" list-weight-in " scrollbarHieght="400px" >
         <div class="list-group">
           <a class="list-group-item" style="cursor: pointer;" 
             *ngFor="let weightIn of listWeightIn"

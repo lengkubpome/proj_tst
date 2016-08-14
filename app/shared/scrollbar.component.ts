@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'scrollbar',
     template: `
-        <div class="my-scrollbar">
+        <div class="my-scrollbar"
+        [ngStyle]="{ 'height': isHieght }">
             <div class="my-container" 
-            [ngStyle]="{ 
-                right: '0px'
-                }">
+            [ngStyle]="{ 'height': isHieght }">
+
                 <ng-content></ng-content>
             </div>
         </div>
     `,
     styles: [`
          .my-scrollbar {
-            height: 400px;
+
             width: 100%;
             /*border: 1px solid green;*/
             overflow: hidden;
             position: relative;
         }
         .my-scrollbar > .my-container {
+
             position: absolute;
             top: 0px;
             bottom: 0px;
@@ -33,6 +34,7 @@ import { Component, OnInit } from '@angular/core';
     `]
 })
 export class ScrollbarComponent implements OnInit {
+    @Input('scrollbarHieght') isHieght :string;
 
     ngOnInit() {
 

@@ -8,23 +8,21 @@ import { WeightingCar, WeightingService } from './weighting.service';
     templateUrl: 'app/weighting/weighting.component.html',
 })
 export class WeightingComponent implements OnInit, OnDestroy {
-    private listWeightIn: WeightingCar[];
+    private listWeightIn: Object[];
 
-    weightInCount:number;
-    selectCar: WeightingCar;
-    selectCarId: string;
-    selectCarProduct: string;
+    weightInLenth: number;
+    selectCar: WeightingCar = { id: null, carId: null, product: null };
+    // selectCarId: string;
+    // selectCarProduct: string;
 
-    constructor(private _weightingService: WeightingService) {
- 
-    }
-
-
+    constructor(private _weightingService: WeightingService) { }
 
     getListWeightIn() {
         this._weightingService.getListWiegtingIn()
             .then(listWeightIn => this.listWeightIn = listWeightIn);
-                
+
+        this._weightingService.getLength()
+            .then(length => this.weightInLenth = length);
     }
 
     ngOnInit() {
@@ -35,9 +33,10 @@ export class WeightingComponent implements OnInit, OnDestroy {
 
     }
 
-    onSelect(weightingIn: WeightingCar) {
-        this.selectCarId = weightingIn.carId;
-        this.selectCarProduct = weightingIn.product;
+    onSelect(_weightingIn: WeightingCar) {
+        // this.selectCarId = _weightingIn.carId;
+        // this.selectCarProduct = _weightingIn.product;
+        this.selectCar = _weightingIn;
 
     }
 }
