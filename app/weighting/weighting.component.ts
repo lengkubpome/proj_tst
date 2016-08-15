@@ -5,15 +5,13 @@ import { WeightingCar, WeightingService } from './weighting.service';
 
 @Component({
     selector: 'weighting',
-    templateUrl: 'app/weighting/weighting.component.html',
+    templateUrl: 'app/weighting/weighting.component.html'
 })
 export class WeightingComponent implements OnInit, OnDestroy {
     private listWeightIn: Object[];
 
     weightInLenth: number;
     selectCar: WeightingCar = { id: null, carId: null, product: null };
-    // selectCarId: string;
-    // selectCarProduct: string;
 
     constructor(private _weightingService: WeightingService) { }
 
@@ -34,8 +32,6 @@ export class WeightingComponent implements OnInit, OnDestroy {
     }
 
     onSelect(_weightingIn: WeightingCar) {
-        // this.selectCarId = _weightingIn.carId;
-        // this.selectCarProduct = _weightingIn.product;
         this.selectCar = _weightingIn;
 
     }
