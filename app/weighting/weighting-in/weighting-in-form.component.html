@@ -1,26 +1,14 @@
 <form action="">
     <div class="card">
+
         <div class="card-header">
-            <h3>New WeightingIn</h3>
+            <button type="button" class="close" aria-label="Close">
+        <!--        <span aria-hidden="true">&times;</span>     -->
+                <span class="caret"></span>
+            </button>
 
-            <!--<hr>
-            <div class="form-group clearfix">
 
-                <div class="col-md-8">
-                    <label for="weight">Weight</label>
-
-                </div>
-                <div class="col-md-4">
-
-                    <label class="control-label pull-right" for="inputSuccess">Weight</label>
-                    <div class="form-group has-success ">
-                        <input type="text" class="form-control input-lg" style="text-align:right;font-size: 35px; font-weight: bold;">-->
-            <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->
-            <!--</div>
-
-                </div>
-
-            </div>-->
+            <h3>บันทึกน้ำหนักรถเข้า</h3>
 
         </div>
         <div class="card-block">
@@ -28,10 +16,15 @@
             <div class="row">
 
                 <div class="col-md-9">
-                    <div class="form-group">
-                        <label for="carId">Car ID</label>
-                        <input type="text" class="form-control" id="firstname">
-                    </div>
+                    <h4 class="card-title">
+                        คำแนะนำ
+                    </h4>
+                    <p class="text-muted">กรุณาใส่ข้อมูลให้ครบถ้วน</p>
+                    <p class="text-primary">...</p>
+                    <p class="text-success">...</p>
+                    <p class="text-info">...</p>
+                    <p class="text-warning">...</p>
+                    <p class="text-danger">ข้อความแจ้งเตือน</p>
                 </div>
                 <div class="col-md-3">
                     <label class="control-label pull-right" for="weight">น้ำหนักเข้า</label>
@@ -41,12 +34,14 @@
                     </div>
                 </div>
             </div>
+            <hr>
 
 
 
             <div class="form-group">
-                <label for="carId">Car ID</label>
-                <input type="text" class="form-control" id="firstname">
+                <label for="carId">รถเข้าชั่ง</label>
+                <input type="text" class="form-control" id="firstname" placeholder="เลขทะเบียน">
+
             </div>
             <div class="form-group">
                 <label for="product">Product</label>

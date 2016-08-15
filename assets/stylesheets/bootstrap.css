@@ -1189,7 +1189,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", 'Mitr', sans-serif;
+  /*font-family: "News Cycle", "Arial Narrow Bold", sans-serif;*/
   font-weight: 700;
   line-height: 1.1;
   color: #000000;
@@ -6837,7 +6838,8 @@ button.close {
 .jumbotron h4,
 .jumbotron h5,
 .jumbotron h6 {
-  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-family: "News Cycle", "Arial Narrow Bold", 'Mitr', sans-serif;
+  /*font-family: "News Cycle", "Arial Narrow Bold", sans-serif;*/
   font-weight: 700;
   color: #000;
 }
