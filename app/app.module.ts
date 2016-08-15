@@ -9,7 +9,6 @@ import { routing,
 // Shared Component
 import { ScrollbarComponent } from './shared/scrollbar.component';
 // Main Component
-import { WeightingComponent } from './weighting/weighting.component';
 import { NavbarComponent } from './navbar.component';
 import { WeightingModule } from './weighting/weighting.module';
 import { HeroesModule } from './heroes/heroes.module';
@@ -27,8 +26,7 @@ import { HeroesModule } from './heroes/heroes.module';
     ScrollbarComponent,
     // Main Component
     AppComponent,
-    NavbarComponent,
-    WeightingComponent
+    NavbarComponent
   ],
   providers: [
     appRoutingProviders
