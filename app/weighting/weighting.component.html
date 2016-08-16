@@ -5,15 +5,15 @@
   </div>
 </div>
 
-<div class="container-fluid" >
+<div class="container-fluid">
   <div class="row">
     <div class="col-xs-14 col-sm-6 col-md-9">
 
-      <div class=" clearfix">
+      <!--menu bar-->
+      <div class=" clearfix" hidden>
         <div>
           <button type="button" class="btn btn-primary ">
           <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
-
           <button type="button" class="btn btn-default  pull-right" aria-label="Left Align">
           <span class="glyphicon glyphicon-time" aria-hidden="true"></span></button>
         </div>
@@ -23,15 +23,14 @@
           <div class="card-block">
             <h4 class="card-title ">{{selectCar.carId}}</h4>
             <p class="card-text">{{selectCar.product}}</p>
-            
+
             <a href="#" class="card-link">Go somewhere</a>
           </div>
         </div>
-        
-        <weighting-in-form></weighting-in-form>
-
-
+        <!--end of menu bar-->
       </div>
+      
+      <weighting-in-form></weighting-in-form>
     </div>
     <!--end column-->
 
@@ -48,12 +47,9 @@
       </div>
 
       <!--<my-scrollbar>-->
-      <scrollbar class=" list-weight-in " scrollbarHieght="400px" >
+      <scrollbar class=" list-weight-in " scrollbarHieght="400px">
         <div class="list-group">
-          <a class="list-group-item" style="cursor: pointer;" 
-            *ngFor="let weightIn of listWeightIn"
-            (click)="onSelect(weightIn)"
-            >
+          <a class="list-group-item" style="cursor: pointer;" *ngFor="let weightIn of listWeightIn" (click)="onSelect(weightIn)">
             <span class="badge">เหล็ก</span>
             <p class="list-group-item-heading">ทะเบียน: {{weightIn.carId}}</p>
           </a>

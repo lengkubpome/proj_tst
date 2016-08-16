@@ -6,6 +6,12 @@
 .thumbnail {
     border-radius: 100%;
 }
+.avatar{
+    width:64px;
+    height:64px;
+    /*border-radius: 100%;*/
+}
+
 
 .card {
     position: relative;
@@ -53,6 +59,13 @@ div.card-block {
     margin-top: 10.5px;
     margin-bottom: 10.5px;
 font-size: 1.75rem;
+}
+
+.card-footer {
+    padding: .75rem 1.25rem;
+    /*background-color: #f5f5f5;*/
+    border-top: 1px solid rgba(0,0,0,.125);
+    
 }
 
 .card-title {
