@@ -35,5 +35,12 @@ export class WeightingComponent implements OnInit, OnDestroy {
         this.selectCar = _weightingIn;
 
     }
+
+    private createWeightIn: boolean = false;
+    onCreateWeightIn() {
+        this.createWeightIn = !this.createWeightIn;
+
+    }
+    
 }
 

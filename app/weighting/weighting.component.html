@@ -9,28 +9,42 @@
   <div class="row">
     <div class="col-xs-14 col-sm-6 col-md-9">
 
-      <!--menu bar-->
-      <div class=" clearfix" hidden>
-        <div>
-          <button type="button" class="btn btn-primary ">
-          <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
-          <button type="button" class="btn btn-default  pull-right" aria-label="Left Align">
-          <span class="glyphicon glyphicon-time" aria-hidden="true"></span></button>
-        </div>
+
+        <!--menu bar-->
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" 
+                    class="btn btn-primary" 
+                    [class.hidden]="createWeightIn" 
+                    (click)="onCreateWeightIn()" >
+            <span class="glyphicon glyphicon-save " aria-hidden="true"></span> ชั่งน้ำหนักรถเข้า</button>
+            
+            
+            <button type="button" class="btn btn-default  pull-right" aria-label="Left Align">
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span></button>
+          </div>
+        </div>      
+        <!--end of menu bar-->
         <br>
+          <div class="row" hidden>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-block">
+                <h4 class="card-title ">{{selectCar.carId}}</h4>
+                <p class="card-text">{{selectCar.product}}</p>
 
-        <div class="card">
-          <div class="card-block">
-            <h4 class="card-title ">{{selectCar.carId}}</h4>
-            <p class="card-text">{{selectCar.product}}</p>
-
-            <a href="#" class="card-link">Go somewhere</a>
+                <a href="#" class="card-link">Go somewhere</a>
+              </div>
+            </div>
           </div>
         </div>
-        <!--end of menu bar-->
-      </div>
-      
-      <weighting-in-form></weighting-in-form>
+
+ 
+
+
+      <!-- New weighting-IN -->
+      <weighting-in-form *ngIf="createWeightIn" (save)="onCreateWeightIn()" (cancel)="onCreateWeightIn()" ></weighting-in-form>
+
     </div>
     <!--end column-->
 

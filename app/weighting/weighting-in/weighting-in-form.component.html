@@ -13,64 +13,56 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-md-9">
+                    <!-- row 1 -->
                     <div class="row">
-                        <div class="form-group col-md-6">
-                            <label for="carId">รถเข้าชั่ง</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="เลขทะเบียน">
-                        </div>
 
                         <div class="form-group col-md-6">
-                            <label for="carId">ลูกค้า</label>
-                            <input type="text" class="form-control" id="xx" placeholder="รหัสลูกค้า">
-
-
+                            <label for="carId">รถชั่งเข้า</label>
+                            <input type="text" class="form-control" id="firstname" placeholder="เลขทะเบียน...">
                         </div>
 
+                        <div [ngStyle]="{'margin-top': '25px'}"><!-- div detail -->
+                            
+                            <div class="card col-md-6">
+                                
+                                <div class="media">
+                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                        <h4 class="media-heading">ไม่มีข้อมูล</h4>
+                                        กรุณาใส่รายละเอียด...
+                                    </div>
+                                    <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
 
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+
+                                    </div>
+                                </div>
+                                
+                                <div class="media">
+                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                        <h4 class="media-heading">กอ-9555 ขอนแก่น</h4>
+                                        ประเภทรถ: เก๋ง
+                                    </div>
+                                    <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
+
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-
+                    <!-- end row 1 -->
+                    <!-- row 2 -->
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <!--<div class="form-group">
-                                <label for="product">Product</label>
-                                <input type="text" class="form-control" id="product">
-                            </div>-->
-                            <label for="product">Product</label>
-                            <div class="input-group">
-
-                                <input type="text" class="form-control" aria-label="...">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </div>
-                                <!-- /btn-group -->
-                            </div>
-                            <!-- /input-group -->
-
-
-                            <h4 class="card-title">
-                                คำแนะนำ
-                            </h4>
-                            <p class="text-muted">กรุณาใส่ข้อมูลให้ครบถ้วน</p>
-                            <!--<p class="text-primary">...</p>
-                            <p class="text-success">...</p>
-                            <p class="text-info">...</p>
-                            <p class="text-warning">...</p>-->
-                            <p class="text-danger">ข้อความแจ้งเตือน</p>
-
+                            <label for="carId">ลูกค้า</label>
+                            <input type="text" class="form-control" id="xx" placeholder="รหัสลูกค้า...">
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="card">
-
-
+                        <div [ngStyle]="{'margin-top': '25px'}"><!-- div detail -->
+                            
+                            <div class="card col-md-6">
                                 <div class="media">
                                     <div class="media-left media-middle">
                                         <a>
@@ -88,7 +80,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end of card -->
+                        </div>
+                    </div>
+                    <!-- end row 2 -->
+
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="product">สินค้า</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="..." placeholder="รหัสสินค้า...">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <!-- /btn-group -->
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+
+                        <div class="col-md-6">
+                          
                         </div>
                         <!-- end of col-md-6 -->
                     </div>
@@ -106,35 +124,6 @@
                         <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->
                     </div>
 
-                            <div class="card">
-
-
-                                <div class="media">
-                                    <div class="media-left media-middle">
-                                        <a>
-                                            <img class="media-object avatar" src="https://avatars.githubusercontent.com/u/1825798?v=3">
-                                        </a>
-                                    </div>
-                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                        <h4 class="media-heading">นายเกียรติพงศ์ แซ่ตั้ง</h4>
-                                        ลูกค้าทั่วไป,ร้านเขื่อนอุบลรัตน์
-                                    </div>
-                                    <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
-
-                                        <span class="glyphicon glyphicon-chevron-down"></span>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of card -->
-
-
-                    <div [ngStyle]="{
-                            padding: '0.75rem 1.25rem',
-                            border: '1px solid rgba(0,0,0,.125)',
-                            height: '230px'}">
-                    </div>
-
                 </div>
             </div>
 
@@ -145,10 +134,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <button type="button" class="btn btn-primary ">
+                        <button type="button" class="btn btn-primary" (click)="onSave()">
                         <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
-                        <button type="button" class="btn btn-error ">
-                        <span class="glyphicon glyphicon-save " aria-hidden="true"></span> ยกเลิก</button>
+                        
+                        <button type="button" class="btn btn-error "  (click)="onCancel()">
+                        ยกเลิก</button>
                     </div>
                 </div>
 
