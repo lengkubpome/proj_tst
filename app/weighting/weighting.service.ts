@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
-export interface WeightingCar {
-    id: number;
-    carId: string;
-    product: string;
-}
-
-// export class WeightingCar {
-//     constructor(
-//         public id: number,
-//         public carId: string,
-//         public product: string
-//     ) { }
+// export interface WeightingCar {
+//     id: number;
+//     carId: string;
+//     product: string;
 // }
+
+export class WeightingCar {
+    constructor(
+        public id: number,
+        public carId: string,
+        public product: string
+    ) { }
+}
 
 let ListWeightingCar: WeightingCar[] = [
     { id: 1, carId: '9555', product: 'เหล็ก' },
