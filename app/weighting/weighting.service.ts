@@ -10,15 +10,16 @@ export class WeightingCar {
     constructor(
         public id: number,
         public carId: string,
-        public product: string
+        public product: string,
+        public customerId?: number
     ) { }
 }
 
 let ListWeightingCar: WeightingCar[] = [
-    { id: 1, carId: '9555', product: 'เหล็ก' },
-    { id: 2, carId: '9135', product: 'กระดาษสี' },
-    { id: 3, carId: '1818', product: 'กระดาษกล่อง' },
-    { id: 4, carId: '81-4920', product: 'สังกะสี' }
+    { id: 1, carId: '9555', product: 'เหล็ก', customerId: 0 },
+    { id: 2, carId: '9135', product: 'กระดาษสี', customerId: 0 },
+    { id: 3, carId: '1818', product: 'กระดาษกล่อง', customerId: 0 },
+    { id: 4, carId: '81-4920', product: 'สังกะสี', customerId: 0 }
     // new WeightingCar(1, '9555', 'เหล็ก'),
     // new WeightingCar(2, '9135', 'กระดาษกล่อง'),
     // new WeightingCar(3, '81-4920', 'กระดาษกล่อง'),
@@ -38,7 +39,7 @@ export class WeightingService {
         // return ListWeightingCar;
     }
 
-    getLength(){
+    getLength() {
         return Promise.resolve(ListWeightingCar.length);
     }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core';
 
+import { WeightingCar } from '../weighting.service';
 import { Subscription }       from 'rxjs/Subscription';
 
 
@@ -13,8 +14,10 @@ export class WeightingInFormComponent implements OnInit, OnDestroy {
     @Output() save = new EventEmitter();
     @Output() cancel = new EventEmitter();
 
-    products = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
+    model = new WeightingCar(12, null, null, null);
+
+    products = ['เหล็ก', 'กระดาษ',
+        'กระป๋อง', 'สังกะสี'];
 
     ngOnInit() {
 
@@ -37,5 +40,9 @@ export class WeightingInFormComponent implements OnInit, OnDestroy {
         console.log("Clicked Cancel");
 
     }
+
+    // TODO: Remove this when we're done
+    get diagnostic() { return JSON.stringify(this.model); }
+
 }
 

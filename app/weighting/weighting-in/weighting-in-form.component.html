@@ -1,4 +1,5 @@
 <form action="">
+
     <div class="card">
 
         <div class="card-header">
@@ -11,6 +12,8 @@
         </div>
 
         <div class="card-block">
+                {{diagnostic}}
+
             <div class="row">
                 <div class="col-md-9">
                     <!-- row 1 -->
@@ -19,16 +22,15 @@
                         <div class="form-group col-md-6">
                             <label for="carId">รถชั่งเข้า</label>
                             <input type="text" class="form-control" 
-                                
-                                ngControl="carId"
-                                id="carId" 
-                                (change)="log(carId)"
-                                
+                                id="carId" required
+                                [(ngModel)]="model.carId"
+                                name="carId"   
+                                #carId="ngModel"
                                 placeholder="เลขทะเบียน..."
-                                required
-                                >
-
+                                #spy >
+                                                <br> TODO: remove this:{{spy.className}}
                         </div>
+
                     <div [ngStyle]="{'margin-top': '25px'}"><!-- div detail -->
                             
                             <div class="card col-md-6">
@@ -64,10 +66,12 @@
                     <!-- row 2 -->
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="carId">ลูกค้า</label>
+                            <label for="customerId">ลูกค้า</label>
                             <input type="text" class="form-control"
-                                 id="customerId"
-                                 ngControl="customerId"                                 
+                                 id="customerId" required
+                                [(ngModel)]="model.customerId"
+                                name="customerId"   
+                                #customerId="ngModel"                             
                                  placeholder="รหัสลูกค้า...">
                         </div>
 

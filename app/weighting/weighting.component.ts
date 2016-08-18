@@ -11,7 +11,7 @@ export class WeightingComponent implements OnInit, OnDestroy {
     private listWeightIn: Object[];
 
     weightInLenth: number;
-    selectCar: WeightingCar = { id: null, carId: null, product: null };
+    selectCar = new WeightingCar(null, null, null, null);
 
     constructor(private _weightingService: WeightingService) { }
 
@@ -41,6 +41,6 @@ export class WeightingComponent implements OnInit, OnDestroy {
         this.createWeightIn = !this.createWeightIn;
 
     }
-    
+
 }
 
