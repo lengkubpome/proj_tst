@@ -28,40 +28,38 @@
                                 #carId="ngModel"
                                 placeholder="เลขทะเบียน..."
                                 #spy >
-                    
+                    <br>TODO: remove this: {{spy.className}}
                         </div>
-                    
+                        
                     <!-- div detail -->
-                    <div [ngStyle]="{'margin-top': '25px'}"  [hidden]="carId.valid || carId.pristine"> 
-                            <div class="card col-md-6">
-                                <div class="media" >
-                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                        <h4 class="media-heading">ไม่มีข้อมูล</h4>
-                                        กรุณาใส่ทะเบียนรถ...
+                        <div [ngStyle]="{'margin-top': '25px'}"  > 
+                                
+                                <div class="card col-md-6">
+                                    <div class="media"  [hidden]="carId.valid || carId.pristine" >
+
+                                        <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                            <h4 class="media-heading">ไม่มีข้อมูล</h4>
+                                            กรุณาใส่ทะเบียนรถ...
+                                        </div>
+                                        <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+
+                                        </div>
                                     </div>
-                                    <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
 
-                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    <div class="media" >
 
+                                        <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                            <h4 class="media-heading">กอ-9555 ขอนแก่น</h4>
+                                            ประเภทรถ: เก๋ง
+                                        </div>
+                                        <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div [ngStyle]="{'margin-top': '25px'}"  [hidden]="carId.valid || carId.pristine"> 
-                            <div class="card col-md-6">
-                                <div class="media">
-                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                        <h4 class="media-heading">กอ-9555 ขอนแก่น</h4>
-                                        ประเภทรถ: เก๋ง
-                                    </div>
-                                    <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
-
-                                        <span class="glyphicon glyphicon-chevron-down"></span>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                     <!-- end row 1 -->
