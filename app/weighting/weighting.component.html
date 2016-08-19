@@ -16,7 +16,7 @@
             <button type="button" 
                     class="btn btn-primary" 
                     [class.hidden]="createWeightIn" 
-                    (click)="onCreateWeightIn()" >
+                    (click)="onShowWeightingIn()" >
             <span class="glyphicon glyphicon-save " aria-hidden="true"></span> ชั่งน้ำหนักรถเข้า</button>
             
             
@@ -43,7 +43,7 @@
 
 
       <!-- New weighting-IN -->
-      <weighting-in-form *ngIf="createWeightIn" (save)="onCreateWeightIn()" (cancel)="onCreateWeightIn()" ></weighting-in-form>
+      <weighting-in-form *ngIf="createWeightIn" (save)="onSaveWeightingIn($event)" (cancel)="onCancelWeightingIn()" ></weighting-in-form>
 
     </div>
     <!--end column-->

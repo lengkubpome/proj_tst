@@ -37,9 +37,19 @@ export class WeightingComponent implements OnInit, OnDestroy {
     }
 
     private createWeightIn: boolean = false;
-    onCreateWeightIn() {
+    onShowWeightingIn() {
         this.createWeightIn = !this.createWeightIn;
+    }
 
+    onSaveWeightingIn(arg: any) {
+        this.createWeightIn = !this.createWeightIn;
+        console.log(arg);
+
+
+    }
+
+    onCancelWeightingIn() {
+        this.createWeightIn = false;
     }
 
 }

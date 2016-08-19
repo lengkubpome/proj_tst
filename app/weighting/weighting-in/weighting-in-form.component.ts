@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core';
 
-import { WeightingCar } from '../weighting.service';
+import { WeightingCar, WeightingService } from '../weighting.service';
 import { Subscription }       from 'rxjs/Subscription';
 import {Observable} from 'rxjs/Rx';
 
@@ -12,7 +12,7 @@ import {Observable} from 'rxjs/Rx';
 })
 export class WeightingInFormComponent implements OnInit, OnDestroy {
 
-    @Output() save = new EventEmitter();
+    @Output() save: EventEmitter<Object> = new EventEmitter();
     @Output() cancel = new EventEmitter();
 
     model = new WeightingCar(12, null, null, null, null, null, null, null);
@@ -33,10 +33,13 @@ export class WeightingInFormComponent implements OnInit, OnDestroy {
 
     }
 
-    onSubmit(data:any) {
-        this.save.emit({});
+    onSubmit(data: any) {
+        // this.save.emit(data.form);
+        console.log(this.save.subscribe(null,"error","complet"));
         
-        console.log(JSON.stringify(data.value, null, 2));
+
+
+        // console.log(JSON.stringify(data.value, null, 2));
 
     }
 
