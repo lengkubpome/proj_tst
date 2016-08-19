@@ -33,8 +33,10 @@ export class WeightingInFormComponent implements OnInit, OnDestroy {
 
     }
 
-    log(x: string) {
-        console.log(x);
+    onSubmit(data:any) {
+        this.save.emit({});
+        
+        console.log(JSON.stringify(data.value, null, 2));
 
     }
 

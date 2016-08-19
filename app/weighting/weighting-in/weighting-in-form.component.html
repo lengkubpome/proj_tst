@@ -1,4 +1,4 @@
-<form action="">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
 
     <div class="card">
 
@@ -27,40 +27,45 @@
                                 name="carId"   
                                 #carId="ngModel"
                                 placeholder="เลขทะเบียน..."
-                                #spy >
-                    <br>TODO: remove this: {{spy.className}}
+                                minlength="3"
+                                >
+                    <!--<br>TODO: remove this: {{spy.className}}
+                    <br>{{carId.errors | json}}-->
                         </div>
                         
                     <!-- div detail -->
-                        <div [ngStyle]="{'margin-top': '25px'}"  > 
+                        <div [ngStyle]="{'margin-top': '20px'}"  > 
                                 
-                                <div class="card col-md-6">
-                                    <div class="media"  [hidden]="carId.valid || carId.pristine" >
-
+                                <div class="card col-md-6" *ngIf="carId.errors && !carId.pristine ">
+                                    <div class="media"  *ngIf="carId.errors.required " >
                                         <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                            <h4 class="media-heading">ไม่มีข้อมูล</h4>
+                                            <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
                                             กรุณาใส่ทะเบียนรถ...
-                                        </div>
-                                        <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-
-                                        </div>
+                                        </div>           
                                     </div>
 
-                                    <div class="media" >
+                                    <div class="media" *ngIf="carId.errors.minlength " >
 
                                         <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                            <h4 class="media-heading">กอ-9555 ขอนแก่น</h4>
-                                            ประเภทรถ: เก๋ง
-                                        </div>
-                                        <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-
+                                            <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
+                                            กรุณาใส่เลขทะเบียนตั้งแต่ {{carId.errors.minlength.requiredLength}} จำนวน
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+<!-- If true value-->
+                                <div class="card col-md-6" *ngIf="!carId.errors ">
+                                    <div class="media" >
+                                        <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                            <h4 class="media-heading">กอ-9555</h4>
+                                            ประเภทรถ: เก๋ง
+                                        </div>  
+                                        <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </div>         
+                                    </div>
+                                </div>
 
+                            </div>
                     </div>
                     <!-- end row 1 -->
                     <!-- row 2 -->
@@ -68,16 +73,19 @@
                         <div class="form-group col-md-6">
                             <label for="customerId">ลูกค้า</label>
                             <input type="text" class="form-control"
-                                 id="customerId" required
+                                id="customerId"
                                 [(ngModel)]="model.customerId"
                                 name="customerId"   
                                 #customerId="ngModel"                             
-                                 placeholder="รหัสลูกค้า...">
+                                 placeholder="รหัสลูกค้า..."
+                                 
+                                 #spy>
+                                <br>TODO: remove this: {{spy.className}}
                         </div>
 
                         <div [ngStyle]="{'margin-top': '25px'}"><!-- div detail -->
                             
-                            <div class="card col-md-6">
+                            <div class="card col-md-6" *ngIf="customerId.valid">
                                 <div class="media">
                                     <div class="media-left media-middle">
                                         <a>
@@ -175,7 +183,8 @@
                         <!--Summut button-->
                         <button type="button" class="btn btn-primary" 
                             type="submit"
-                            (click)="onSave()">
+                            [disabled]="!f.valid"
+                            >
                         <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
                         
                         <button type="button" class="btn btn-error "  (click)="onCancel()">
