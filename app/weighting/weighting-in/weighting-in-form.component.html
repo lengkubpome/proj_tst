@@ -17,9 +17,9 @@
             <div class="row">
                 <div class="col-md-9">
                     <!-- row 1 -->
-                    <div class="row">
+                    <div class="form-group  row">
   
-                        <div class="form-group col-md-6">
+                        <div class="col-md-6">
                             <label for="carId">รถชั่งเข้า</label>
                             <input type="text" class="form-control" 
                                 id="carId" required
@@ -28,17 +28,16 @@
                                 #carId="ngModel"
                                 placeholder="เลขทะเบียน..."
                                 #spy >
-                                                <br> TODO: remove this:{{spy.className}}
+                    
                         </div>
-
-                    <div [ngStyle]="{'margin-top': '25px'}"><!-- div detail -->
-                            
+                    
+                    <!-- div detail -->
+                    <div [ngStyle]="{'margin-top': '25px'}"  [hidden]="carId.valid || carId.pristine"> 
                             <div class="card col-md-6">
-                                
-                                <div class="media">
+                                <div class="media" >
                                     <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
                                         <h4 class="media-heading">ไม่มีข้อมูล</h4>
-                                        กรุณาใส่รายละเอียด...
+                                        กรุณาใส่ทะเบียนรถ...
                                     </div>
                                     <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
 
@@ -46,7 +45,10 @@
 
                                     </div>
                                 </div>
-                                
+                            </div>
+                        </div>
+                        <div [ngStyle]="{'margin-top': '25px'}"  [hidden]="carId.valid || carId.pristine"> 
+                            <div class="card col-md-6">
                                 <div class="media">
                                     <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
                                         <h4 class="media-heading">กอ-9555 ขอนแก่น</h4>
@@ -103,7 +105,13 @@
                         <div class="form-group col-md-6">
                             <label for="product">สินค้า</label>
                             
-                            <select name="product" id="product" class="form-control">
+                            <select name="product" id="product" class="form-control" 
+                                    required
+                                    [(ngModel)]="model.product"
+                                    name="product"   
+                                    #product="ngModel"
+                            >
+                                <option value="" disabled selected>Select your option</option>
                                  <option *ngFor="let p of products" [value]="p">{{p}}</option>
                             </select>
                             
@@ -140,10 +148,18 @@
                 <div class="col-md-3">
                     <label class="control-label pull-right" for="weight">น้ำหนักเข้า</label>
                     <div class="form-group has-error ">
-                        <input type="text" class="form-control input-lg" disabled style="
+                        <input type="text" class="form-control input-lg" style="
                                 text-align: right;
                                 font-size: 35px;
-                                font-weight: bold;">
+                                font-weight: bold;"
+                                disabled
+                                id="weight"
+                                    required
+                                    [(ngModel)]="model.weightIn"
+                                    name="weight"   
+                                    #weight="ngModel"
+   
+                                >
                         <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->
                     </div>
 

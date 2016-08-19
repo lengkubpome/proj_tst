@@ -11,15 +11,20 @@ export class WeightingCar {
         public id: number,
         public carId: string,
         public product: string,
+        public weightIn: number,
+        public weightOut: number,
+        public _dateIn: Date,
+        public _dateOut: Date,
         public customerId?: number
+
     ) { }
 }
 
 let ListWeightingCar: WeightingCar[] = [
-    { id: 1, carId: '9555', product: 'เหล็ก', customerId: 0 },
-    { id: 2, carId: '9135', product: 'กระดาษสี', customerId: 0 },
-    { id: 3, carId: '1818', product: 'กระดาษกล่อง', customerId: 0 },
-    { id: 4, carId: '81-4920', product: 'สังกะสี', customerId: 0 }
+    { id: 1, carId: '9555', product: 'เหล็ก', _dateIn: null,_dateOut:null, customerId: 0, weightIn: 8300, weightOut: 3020 },
+    { id: 2, carId: '9135', product: 'กระดาษสี', _dateIn: null,_dateOut:null, customerId: 0, weightIn: 9000, weightOut: 3020 },
+    { id: 3, carId: '1818', product: 'กระดาษกล่อง', _dateIn: null,_dateOut:null, customerId: 0, weightIn: 7090, weightOut: 3020 },
+    { id: 4, carId: '81-4920', product: 'สังกะสี', _dateIn: null,_dateOut:null, customerId: 0, weightIn: 6300, weightOut: 3020 }
     // new WeightingCar(1, '9555', 'เหล็ก'),
     // new WeightingCar(2, '9135', 'กระดาษกล่อง'),
     // new WeightingCar(3, '81-4920', 'กระดาษกล่อง'),

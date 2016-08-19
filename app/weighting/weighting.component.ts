@@ -11,7 +11,7 @@ export class WeightingComponent implements OnInit, OnDestroy {
     private listWeightIn: Object[];
 
     weightInLenth: number;
-    selectCar = new WeightingCar(null, null, null, null);
+    selectCar = new WeightingCar(null, null, null, null, null, null, null, null);
 
     constructor(private _weightingService: WeightingService) { }
 
