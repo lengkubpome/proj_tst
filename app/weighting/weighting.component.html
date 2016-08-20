@@ -26,7 +26,7 @@
         </div>      
         <!--end of menu bar-->
         <br>
-          <div class="row" hidden>
+          <div class="row" >
           <div class="col-md-12">
             <div class="card">
               <div class="card-block">
@@ -50,27 +50,10 @@
 
     <!-- Side right-->
     <div class="col-xs-14 col-sm-6 col-md-3">
-      <div class="page-header" style="margin: 0px 0 18px; ">
-        <h4>List of Car-In <span class="badge">{{weightInLenth}}</span></h4>
-      </div>
 
-      <!--search bar-->
-      <div class="form-group  has-feedback">
-        <input type="text" class="form-control " placeholder="ค้นหาทะเบียนรถ">
-        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-      </div>
-
-      <!--<my-scrollbar>-->
-      <scrollbar class=" list-weight-in " scrollbarHieght="400px">
-        <div class="list-group">
-          <a class="list-group-item" style="cursor: pointer;" *ngFor="let weightIn of listWeightIn" (click)="onSelect(weightIn)">
-            <span class="badge">เหล็ก</span>
-            <p class="list-group-item-heading">ทะเบียน: {{weightIn.carId}}</p>
-          </a>
-
-        </div>
-      </scrollbar>
-      <!--</my-scrollbar>-->
+      <!-- Weighting-In -->
+      <weighting-in></weighting-in>
+      <!-- End of Weighting-In -->
 
     </div>
     <!--end column-->

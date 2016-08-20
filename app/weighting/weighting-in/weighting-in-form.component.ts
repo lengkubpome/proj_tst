@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 import { WeightingCar, WeightingService } from '../weighting.service';
 import { Subscription }       from 'rxjs/Subscription';
@@ -10,9 +10,9 @@ import {Observable} from 'rxjs/Rx';
     templateUrl: 'app/weighting/weighting-in/weighting-in-form.component.html',
     styleUrls: ['app/weighting/weighting-in/weighting-in-form.component.css']
 })
-export class WeightingInFormComponent implements OnInit, OnDestroy {
+export class WeightingInFormComponent implements OnInit {
 
-    @Output() save: EventEmitter<Object> = new EventEmitter();
+    @Output() save: EventEmitter<Object> = new EventEmitter(true);
     @Output() cancel = new EventEmitter();
 
     model = new WeightingCar(12, null, null, null, null, null, null, null);
@@ -28,15 +28,18 @@ export class WeightingInFormComponent implements OnInit, OnDestroy {
         let timer = Observable.timer(2000, 1000);
         // timer.subscribe(t => this.ticks = t);
         timer.subscribe(() => this.model.weightIn = _.random(99999));
-    }
-    ngOnDestroy() {
 
     }
 
     onSubmit(data: any) {
-        // this.save.emit(data.form);
-        console.log(this.save.subscribe(null,"error","complet"));
-        
+        this.save.emit(data.form);
+
+        // this.save.subscribe(
+        //     x => console.log(x),
+        //     error => console.log(error),
+        //     () => console.log("Completed")
+        // );
+
 
 
         // console.log(JSON.stringify(data.value, null, 2));
