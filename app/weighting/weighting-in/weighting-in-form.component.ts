@@ -22,6 +22,11 @@ export class WeightingInFormComponent implements OnInit {
     private randomNumber: number;
 
     ticks = 0;
+
+    constructor(private _weightingService:WeightingService){
+        
+    }
+
     ngOnInit() {
         setTimeout(() => this.randomNumber = _.random(99999), 500);
 
@@ -32,14 +37,19 @@ export class WeightingInFormComponent implements OnInit {
     }
 
     onSubmit(data: any) {
-        this.save.emit(data.form);
+
+        var test = this._weightingService.createWeightInCar(data.value);
+        
+        console.log(test);
+        
+
+        this.save.emit(data);
 
         // this.save.subscribe(
         //     x => console.log(x),
         //     error => console.log(error),
         //     () => console.log("Completed")
         // );
-
 
 
         // console.log(JSON.stringify(data.value, null, 2));

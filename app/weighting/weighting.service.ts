@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 // export interface WeightingCar {
 //     id: number;
@@ -48,8 +49,19 @@ export class WeightingService {
         return Promise.resolve(ListWeightingCar.length);
     }
 
-    setNewWeightInCar(newCar: any): void {
-        ListWeightingCar.push(new WeightingCar(1, 'New Car', 'สินค้า', 9999, 9999, null, null, null));
+    createWeightInCar(newCar: Object) {
+        var res:any;
+
+        var observable = Observable.of(newCar);
+        // var observable = Observable.throw(new Error("Request failed"));
+        var subscription = observable.subscribe(null,
+            error=> res = false,
+            ()=>   res = true         
+        );
+
+        // return ListWeightingCar.push(new WeightingCar(1, 'New Car', 'สินค้า', 9999, 9999, null, null, null));
+        return res;
+
     }
 
     getWeightInCar(id: number) {
