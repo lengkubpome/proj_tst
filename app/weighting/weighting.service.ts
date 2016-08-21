@@ -49,18 +49,34 @@ export class WeightingService {
         return Promise.resolve(ListWeightingCar.length);
     }
 
-    createWeightInCar(newCar: Object) {
-        var res:any;
+    createWeightInCar(newCar: WeightingCar) {
 
-        var observable = Observable.of(newCar);
-        // var observable = Observable.throw(new Error("Request failed"));
-        var subscription = observable.subscribe(null,
-            error=> res = false,
-            ()=>   res = true         
-        );
+        try {
+            var res: any;
+            var observable = Observable.of(newCar)
+                .map(x => {
+                    ListWeightingCar.push(
+                        new WeightingCar(1,
+                            x.carId,
+                            x.product,
+                            x.weightIn,
+                            x.weightOut,
+                            x._dateIn,
+                            x._dateOut,
+                            x.customerId));
+                });
 
-        // return ListWeightingCar.push(new WeightingCar(1, 'New Car', 'สินค้า', 9999, 9999, null, null, null));
-        return res;
+            // var observable = Observable.throw(new Error("Request failed"));
+            var subscription = observable.subscribe(null,
+                error => console.log(error),
+                () => console.log('To created weight-In.')
+            );
+   
+        } catch (error) {
+            return error;
+
+        }
+
 
     }
 

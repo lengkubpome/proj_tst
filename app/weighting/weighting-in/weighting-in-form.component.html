@@ -36,7 +36,7 @@
                     <!-- div detail -->
                         <div [ngStyle]="{'margin-top': '20px'}"  > 
                                 
-                                <div class="card col-md-6" *ngIf="carId.errors && !carId.pristine ">
+                                <div class="card col-md-6 " *ngIf="carId.errors && !carId.pristine ">
                                     <div class="media"  *ngIf="carId.errors.required " >
                                         <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
                                             <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>

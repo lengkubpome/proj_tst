@@ -48,12 +48,6 @@ export class WeightingInComponent implements OnInit {
     this.select.emit(_weightingIn);
   }
 
-  onRefresh() {
-    // this._weightingService.setNewWeightInCar('new');
-    console.log('Refresh Weighting-IN');
-
-  }
-
   getListWeightIn() {
     this._weightingService.getListWiegtingIn()
       .then(listWeightIn => this.listWeightIn = listWeightIn);

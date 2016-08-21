@@ -32,12 +32,9 @@ export class WeightingComponent implements OnInit, OnDestroy {
         this.createWeightIn = !this.createWeightIn;
     }
 
-    onSaveWeightingIn(arg: any) {
-        this.createWeightIn = !this.createWeightIn;
-        console.log(arg);
-
-        // this._weightingService.setNewWeightInCar(1);
-
+    onSaveWeightingIn(result: any) {
+        if (result != Error)
+            this.createWeightIn = !this.createWeightIn;
     }
 
     onCancelWeightingIn() {

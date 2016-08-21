@@ -38,19 +38,8 @@ export class WeightingInFormComponent implements OnInit {
 
     onSubmit(data: any) {
 
-        var test = this._weightingService.createWeightInCar(data.value);
-        
-        console.log(test);
-        
-
-        this.save.emit(data);
-
-        // this.save.subscribe(
-        //     x => console.log(x),
-        //     error => console.log(error),
-        //     () => console.log("Completed")
-        // );
-
+        var result = this._weightingService.createWeightInCar(data.value);     
+        this.save.emit(result);
 
         // console.log(JSON.stringify(data.value, null, 2));
 
