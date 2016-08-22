@@ -26,15 +26,6 @@ let ListWeightingCar: WeightingCar[] = [
     { id: 2, carId: '9135', product: 'กระดาษสี', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 9000, weightOut: 3020 },
     { id: 3, carId: '1818', product: 'กระดาษกล่อง', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 7090, weightOut: 3020 },
     { id: 4, carId: '81-4920', product: 'สังกะสี', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 6300, weightOut: 3020 }
-    // new WeightingCar(1, '9555', 'เหล็ก'),
-    // new WeightingCar(2, '9135', 'กระดาษกล่อง'),
-    // new WeightingCar(3, '81-4920', 'กระดาษกล่อง'),
-    //     new WeightingCar(1, '9555', 'เหล็ก'),
-    // new WeightingCar(2, '9135', 'กระดาษกล่อง'),
-    // new WeightingCar(3, '81-4920', 'กระดาษกล่อง'),
-    //     new WeightingCar(1, '9555', 'เหล็ก'),
-    // new WeightingCar(2, '9135', 'กระดาษกล่อง'),
-    // new WeightingCar(3, '81-4920', 'กระดาษกล่อง')
 ];
 
 @Injectable()
@@ -52,8 +43,8 @@ export class WeightingService {
     createWeightInCar(newCar: WeightingCar) {
 
         try {
-            var res: any;
-            var observable = Observable.of(newCar)
+            let res: any;
+            let observable = Observable.of(newCar)
                 .map(x => {
                     ListWeightingCar.push(
                         new WeightingCar(1,
@@ -67,7 +58,7 @@ export class WeightingService {
                 });
 
             // var observable = Observable.throw(new Error("Request failed"));
-            var subscription = observable.subscribe(null,
+            observable.subscribe(null,
                 error => console.log(error),
                 () => console.log('To created weight-In.')
             );
