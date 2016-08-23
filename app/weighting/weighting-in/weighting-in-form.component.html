@@ -1,4 +1,5 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form  #weightingInForm="ngForm" (ngSubmit)="onSubmit(weightingInForm)">
+<!--<form [formGroup]="weightingInForm" (ngSubmit)="onSubmit(weightingInForm)">-->
 
     <div class="card">
 
@@ -12,79 +13,74 @@
         </div>
 
         <div class="card-block">
-                {{diagnostic}}
+            {{diagnostic}}
 
             <div class="row">
                 <div class="col-md-9">
                     <!-- row 1 -->
                     <div class="form-group  row">
-  
+
                         <div class="col-md-6">
                             <label for="carId">รถชั่งเข้า</label>
                             <input type="text" class="form-control" 
-                                id="carId" required
-                                [(ngModel)]="model.carId"
-                                name="carId"   
-                                #carId="ngModel"
-                                placeholder="เลขทะเบียน..."
-                                minlength="3"
-                                >
-                    <!--<br>TODO: remove this: {{spy.className}}
+                                    id="carId" 
+                                    required 
+                                    [(ngModel)]="model.carId" 
+                                    name="carId" 
+                                    #carId="ngModel" 
+                                    placeholder="เลขทะเบียน..."                                
+                                    minlength="3">
+                            <!--<br>TODO: remove this: {{spy.className}}
                     <br>{{carId.errors | json}}-->
                         </div>
-                        
-                    <!-- div detail -->
-                        <div [ngStyle]="{'margin-top': '20px'}"  > 
-                                
-                                <div class="card col-md-6 " *ngIf="carId.errors && !carId.pristine ">
-                                    <div class="media"  *ngIf="carId.errors.required " >
-                                        <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                            <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
-                                            กรุณาใส่ทะเบียนรถ...
-                                        </div>           
-                                    </div>
 
-                                    <div class="media" *ngIf="carId.errors.minlength " >
+                        <!-- div detail -->
+                        <div [ngStyle]="{'margin-top': '20px'}">
 
-                                        <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                            <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
-                                            กรุณาใส่เลขทะเบียนตั้งแต่ {{carId.errors.minlength.requiredLength}} จำนวน
-                                        </div>
-                                    </div>
-                                </div>
-                    <!-- If true value-->
-                                <div class="card col-md-6" *ngIf="!carId.errors ">
-                                    <div class="media" >
-                                        <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                            <h4 class="media-heading">กอ-9555</h4>
-                                            ประเภทรถ: เก๋ง
-                                        </div>  
-                                        <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
-                                            <span class="glyphicon glyphicon-chevron-down"></span>
-                                        </div>         
+                            <div class="card col-md-6 " *ngIf="carId.errors && !carId.pristine ">
+                                <div class="media" *ngIf="carId.errors.required ">
+                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                        <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
+                                        กรุณาใส่ทะเบียนรถ...
                                     </div>
                                 </div>
 
+                                <div class="media" *ngIf="carId.errors.minlength ">
+
+                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                        <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
+                                        กรุณาใส่เลขทะเบียนตั้งแต่ {{carId.errors.minlength.requiredLength}} จำนวน
+                                    </div>
+                                </div>
                             </div>
+                            <!-- If true value-->
+                            <div class="card col-md-6" *ngIf="!carId.errors ">
+                                <div class="media">
+                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
+                                        <h4 class="media-heading">กอ-9555</h4>
+                                        ประเภทรถ: เก๋ง
+                                    </div>
+                                    <div class="media-right" [ngStyle]="{'padding': '20px 5px'}">
+                                        <span class="glyphicon glyphicon-chevron-down"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <!-- end row 1 -->
                     <!-- row 2 -->
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="customerId">ลูกค้า</label>
-                            <input type="text" class="form-control"
-                                id="customerId"
-                                [(ngModel)]="model.customerId"
-                                name="customerId"   
-                                #customerId="ngModel"                             
-                                 placeholder="รหัสลูกค้า..."
-                                 
-                                 #spy>
-                                <br>TODO: remove this: {{spy.className}}
+                            <input type="text" class="form-control" id="customerId" [(ngModel)]="model.customerId" name="customerId" #customerId="ngModel"
+                                placeholder="รหัสลูกค้า..." #spy>
+                            <br>TODO: remove this: {{spy.className}}
                         </div>
 
-                        <div [ngStyle]="{'margin-top': '25px'}"><!-- div detail -->
-                            
+                        <div [ngStyle]="{'margin-top': '25px'}">
+                            <!-- div detail -->
+
                             <div class="card col-md-6" *ngIf="customerId.valid">
                                 <div class="media">
                                     <div class="media-left media-middle">
@@ -110,17 +106,12 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="product">สินค้า</label>
-                            
-                            <select name="product" id="product" class="form-control" 
-                                    required
-                                    [(ngModel)]="model.product"
-                                    name="product"   
-                                    #product="ngModel"
-                            >
+
+                            <select name="product" id="product" class="form-control" required [(ngModel)]="model.product" name="product" #product="ngModel">
                                 <option value="" disabled selected>Select your option</option>
                                  <option *ngFor="let p of products" [value]="p">{{p}}</option>
                             </select>
-                            
+
                             <!--<div class="input-group">
                                 <input type="text" class="form-control" aria-label="..." 
                                     id="productId"
@@ -143,7 +134,7 @@
                         </div>
 
                         <div class="col-md-6">
-                          
+
                         </div>
                         <!-- end of col-md-6 -->
                     </div>
@@ -157,15 +148,8 @@
                         <input type="text" class="form-control input-lg" style="
                                 text-align: right;
                                 font-size: 35px;
-                                font-weight: bold;"
-                                disabled
-                                id="weight"
-                                    required
-                                    [(ngModel)]="model.weightIn"
-                                    name="weight"   
-                                    #weight="ngModel"
-   
-                                >
+                                font-weight: bold;" disabled id="weight" required [(ngModel)]="model.weightIn" name="weight"
+                            #weight="ngModel">
                         <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->
                     </div>
 
@@ -181,13 +165,10 @@
                 <div class="col-md-12">
                     <div class="pull-right">
                         <!--Summut button-->
-                        <button type="button" class="btn btn-primary" 
-                            type="submit"
-                            [disabled]="!f.valid"
-                            >
+                        <button type="button" class="btn btn-primary" type="submit" [disabled]="!weightingInForm.valid">
                         <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
-                        
-                        <button type="button" class="btn btn-error "  (click)="onCancel()">
+
+                        <button type="button" class="btn btn-error " (click)="onCancel()">
                         ยกเลิก</button>
                     </div>
                 </div>
@@ -198,4 +179,14 @@
 
 
     </div>
+</form>
+
+<!--=====================================================================-->
+
+<form [formGroup]="myForm" >
+    <div class="form-group">
+        <label for="username">Car ID</label>
+        <input type="text" class="form-control" id="username"  formControlName="username">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>

@@ -24,17 +24,18 @@ export class WeightingComponent implements OnInit, OnDestroy {
 
     }
 
-    onSelect(_weightingIn: WeightingCar) {
+    selectWeightingIn(_weightingIn: WeightingCar) {
         this.selectCar = _weightingIn;
     }
 
-    onShowWeightingIn() {
+    showWeightingInForm() {
         this.createWeightIn = !this.createWeightIn;
     }
 
     onSaveWeightingIn(result: any) {
-        if (result != Error)
+        if (result !== Error) {
             this.createWeightIn = !this.createWeightIn;
+        }
     }
 
     onCancelWeightingIn() {

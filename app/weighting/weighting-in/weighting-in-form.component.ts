@@ -1,7 +1,14 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {
+    FormBuilder,
+    FormGroup,
+    FormControl,
+    Validators
+} from '@angular/forms';
+
+
 
 import { WeightingCar, WeightingService } from '../weighting.service';
-import { Subscription }       from 'rxjs/Subscription';
 import {Observable} from 'rxjs/Rx';
 
 
@@ -12,6 +19,8 @@ import {Observable} from 'rxjs/Rx';
 })
 export class WeightingInFormComponent implements OnInit {
 
+    myForm: FormGroup;
+
     @Output() save: EventEmitter<Object> = new EventEmitter(true);
     @Output() cancel = new EventEmitter();
 
@@ -21,10 +30,14 @@ export class WeightingInFormComponent implements OnInit {
 
     private randomNumber: number;
 
-    ticks = 0;
+    private ticks = 0;
 
-    constructor(private _weightingService:WeightingService){
-        
+    constructor(private _weightingService: WeightingService,
+        private _fb: FormBuilder) {
+            this.myForm = new FormGroup({
+                username: new FormControl('Username start.')
+            });
+
     }
 
     ngOnInit() {
@@ -38,7 +51,7 @@ export class WeightingInFormComponent implements OnInit {
 
     onSubmit(data: any) {
 
-        var result = this._weightingService.createWeightInCar(data.value);     
+        var result = this._weightingService.createWeightInCar(data.value);
         this.save.emit(result);
 
         // console.log(JSON.stringify(data.value, null, 2));

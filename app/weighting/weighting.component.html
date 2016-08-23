@@ -16,7 +16,7 @@
             <button type="button" 
                     class="btn btn-primary" 
                     [class.hidden]="createWeightIn" 
-                    (click)="onShowWeightingIn()" >
+                    (click)="showWeightingInForm()" >
             <span class="glyphicon glyphicon-save " aria-hidden="true"></span> ชั่งน้ำหนักรถเข้า</button>
             
             
@@ -52,7 +52,7 @@
     <div class="col-xs-14 col-sm-6 col-md-3">
 
       <!-- Weighting-In List -->
-      <weighting-in></weighting-in>
+      <weighting-in (select)="selectWeightingIn($event)"></weighting-in>
       <!-- End of Weighting-In -->
 
     </div>

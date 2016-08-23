@@ -1,6 +1,6 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 
 import { WeightingComponent } from './weighting.component';
 import { WeightingInComponent } from './weighting-in/weighting-in.component';
@@ -15,6 +15,7 @@ import { weightingRouting } from './weighting.routing';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     weightingRouting
   ],
   declarations: [

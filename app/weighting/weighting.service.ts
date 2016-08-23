@@ -41,28 +41,18 @@ export class WeightingService {
     }
 
     createWeightInCar(newCar: WeightingCar) {
-
         try {
-            let res: any;
-            let observable = Observable.of(newCar)
-                .map(x => {
-                    ListWeightingCar.push(
-                        new WeightingCar(1,
-                            x.carId,
-                            x.product,
-                            x.weightIn,
-                            x.weightOut,
-                            x._dateIn,
-                            x._dateOut,
-                            x.customerId));
-                });
+            ListWeightingCar.push(
+                new WeightingCar(1,
+                    newCar.carId,
+                    newCar.product,
+                    newCar.weightIn,
+                    newCar.weightOut,
+                    newCar._dateIn,
+                    newCar._dateOut,
+                    newCar.customerId));
 
-            // var observable = Observable.throw(new Error("Request failed"));
-            observable.subscribe(null,
-                error => console.log(error),
-                () => console.log('To created weight-In.')
-            );
-   
+            console.log('To created weight-In.');
         } catch (error) {
             return error;
 
