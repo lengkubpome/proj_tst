@@ -5,6 +5,11 @@ import { Observable } from 'rxjs/Rx';
 //     id: number;
 //     carId: string;
 //     product: string;
+//     weightIn: number;
+//     weightOut: number;
+//     _dateIn: Date;
+//     _dateOut: Date;
+//     customerId?: number;
 // }
 
 export class WeightingCar {

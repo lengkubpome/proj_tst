@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {
+    REACTIVE_FORM_DIRECTIVES,
     FormBuilder,
     FormGroup,
     FormControl,
@@ -34,9 +35,9 @@ export class WeightingInFormComponent implements OnInit {
 
     constructor(private _weightingService: WeightingService,
         private _fb: FormBuilder) {
-            this.myForm = new FormGroup({
-                username: new FormControl('Username start.')
-            });
+ 
+        this.myForm = this._fb.group({
+            username: ['', Validators.required]});
 
     }
 
