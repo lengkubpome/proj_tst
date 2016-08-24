@@ -53,11 +53,6 @@ export class WeightingInFormComponent implements OnInit {
                 .updateValue(_.random(99999), { emitModelToViewChange: true });
         });
 
-        // Keyup
-        // const keyupCarId = Observable.fromEvent($('#carId'), "keyup");
-        // keyupCarId.subscribe((item: any) => {
-        //     console.log(item)
-        // });
     }
 
     onSubmit(data: any) {
