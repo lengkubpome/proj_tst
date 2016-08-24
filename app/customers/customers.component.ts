@@ -15,7 +15,9 @@ import {
                     <div class="form-group">
               <label for="">Name</label>
               <input type="text" class="form-control" formControlName="name">
-              <small *ngIf="myForm.controls.name.valid || (myForm.controls.name.pristine && !submitted)" >
+
+            
+              <small *ngIf="myForm.controls.name.dirty && !myForm.controls.name.valid" >
                     Name is required (minimum 5 characters).
                   </small>
               <pre class="margin-20">{{ myForm.controls.name.errors | json }}</pre>

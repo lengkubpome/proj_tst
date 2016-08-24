@@ -20,7 +20,8 @@ import {Observable} from 'rxjs/Rx';
 })
 export class WeightingInFormComponent implements OnInit {
 
-    myForm: FormGroup;
+    weightingInForm: FormGroup;
+    public events: any[] = [];
 
     @Output() save: EventEmitter<Object> = new EventEmitter(true);
     @Output() cancel = new EventEmitter();
@@ -29,24 +30,24 @@ export class WeightingInFormComponent implements OnInit {
 
     products = ['เหล็ก', 'กระดาษ', 'กระป๋อง', 'สังกะสี'];
 
-    private randomNumber: number;
-
-    private ticks = 0;
-
     constructor(private _weightingService: WeightingService,
-        private _fb: FormBuilder) {
- 
-        this.myForm = this._fb.group({
-            username: ['', Validators.required]});
-
-    }
+        private _fb: FormBuilder) { }
 
     ngOnInit() {
-        setTimeout(() => this.randomNumber = _.random(99999), 500);
+        this.weightingInForm = this._fb.group({
+            carId: ['', [<any>Validators.required, <any>Validators.minLength(6)]],
+            customerId: ['', <any>Validators.required],
+            dateIn: ['', Validators.pattern('[A-Za-z]{5}')],
+            product: ['', Validators.required],
+            weight: ['', Validators.required]
+        });
 
         let timer = Observable.timer(2000, 1000);
-        // timer.subscribe(t => this.ticks = t);
-        timer.subscribe(() => this.model.weightIn = _.random(99999));
+        timer.subscribe(() => {
+            // TODO: controls has change.
+            (<FormControl>this.weightingInForm.controls['weight'])
+                .updateValue(_.random(99999), { emitModelToViewChange: true });
+        });
 
     }
 
@@ -55,14 +56,10 @@ export class WeightingInFormComponent implements OnInit {
         var result = this._weightingService.createWeightInCar(data.value);
         this.save.emit(result);
 
-        // console.log(JSON.stringify(data.value, null, 2));
+        console.log(JSON.stringify(data.value, null, 2));
 
     }
 
-    onSave() {
-        this.save.emit({});
-        console.log("Clicked Save");
-    }
     onCancel() {
         this.cancel.emit({});
         console.log("Clicked Cancel");

@@ -19,18 +19,18 @@ export class WeightingCar {
         public product: string,
         public weightIn: number,
         public weightOut: number,
-        public _dateIn: Date,
-        public _dateOut: Date,
+        public dateIn: Date,
+        public dateOut: Date,
         public customerId?: number
 
     ) { }
 }
 
 let ListWeightingCar: WeightingCar[] = [
-    { id: 1, carId: '9555', product: 'เหล็ก', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 8300, weightOut: 3020 },
-    { id: 2, carId: '9135', product: 'กระดาษสี', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 9000, weightOut: 3020 },
-    { id: 3, carId: '1818', product: 'กระดาษกล่อง', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 7090, weightOut: 3020 },
-    { id: 4, carId: '81-4920', product: 'สังกะสี', _dateIn: null, _dateOut: null, customerId: 0, weightIn: 6300, weightOut: 3020 }
+    { id: 1, carId: '9555', product: 'เหล็ก', dateIn: null, dateOut: null, customerId: 0, weightIn: 8300, weightOut: 3020 },
+    { id: 2, carId: '9135', product: 'กระดาษสี', dateIn: null, dateOut: null, customerId: 0, weightIn: 9000, weightOut: 3020 },
+    { id: 3, carId: '1818', product: 'กระดาษกล่อง', dateIn: null, dateOut: null, customerId: 0, weightIn: 7090, weightOut: 3020 },
+    { id: 4, carId: '81-4920', product: 'สังกะสี', dateIn: null, dateOut: null, customerId: 0, weightIn: 6300, weightOut: 3020 }
 ];
 
 @Injectable()
