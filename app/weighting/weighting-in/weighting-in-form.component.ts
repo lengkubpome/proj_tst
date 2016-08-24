@@ -7,9 +7,8 @@ import {
     Validators
 } from '@angular/forms';
 
-
-
 import { WeightingCar, WeightingService } from '../weighting.service';
+import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
 import {Observable} from 'rxjs/Rx';
 
 
@@ -21,7 +20,6 @@ import {Observable} from 'rxjs/Rx';
 export class WeightingInFormComponent implements OnInit {
 
     weightingInForm: FormGroup;
-    public events: any[] = [];
 
     @Output() save: EventEmitter<Object> = new EventEmitter(true);
     @Output() cancel = new EventEmitter();
@@ -31,16 +29,22 @@ export class WeightingInFormComponent implements OnInit {
     products = ['เหล็ก', 'กระดาษ', 'กระป๋อง', 'สังกะสี'];
 
     constructor(private _weightingService: WeightingService,
-        private _fb: FormBuilder) { }
-
-    ngOnInit() {
+        private _fb: FormBuilder) {
         this.weightingInForm = this._fb.group({
-            carId: ['', [<any>Validators.required, <any>Validators.minLength(6)]],
+            carId: ['', Validators.compose([
+                <any>Validators.required,
+                <any>Validators.minLength(6),
+                WeightingInFormValidators.cannotContainSpace
+            ])
+            ],
             customerId: ['', <any>Validators.required],
             dateIn: ['', Validators.pattern('[A-Za-z]{5}')],
             product: ['', Validators.required],
             weight: ['', Validators.required]
         });
+    }
+
+    ngOnInit() {
 
         let timer = Observable.timer(2000, 1000);
         timer.subscribe(() => {
@@ -49,6 +53,11 @@ export class WeightingInFormComponent implements OnInit {
                 .updateValue(_.random(99999), { emitModelToViewChange: true });
         });
 
+        // Keyup
+        // const keyupCarId = Observable.fromEvent($('#carId'), "keyup");
+        // keyupCarId.subscribe((item: any) => {
+        //     console.log(item)
+        // });
     }
 
     onSubmit(data: any) {

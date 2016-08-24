@@ -26,29 +26,28 @@
                                     required 
                                     name="carId" 
                                     formControlName="carId"
-                                    placeholder="เลขทะเบียน..."                               
+                                    
+                                    placeholder="เลขทะเบียน..."
+                                    autocomplete="off"                               
                                     >
+                            <div  [ngStyle]="{'color': 'red'}"
+                                *ngIf="weightingInForm.controls.carId.dirty && !weightingInForm.controls.carId.valid">
+                                <small *ngIf="weightingInForm.controls.carId.errors.required ">
+                                    กรุณาใส่ทะเบียนรถ...
+                                </small>
+                                <small *ngIf="weightingInForm.controls.carId.errors.minlength" >
+                                    กรุณาใส่เลขทะเบียนตั้งแต่ {{weightingInForm.controls.carId.errors.minlength.requiredLength}} จำนวน
+                                </small>
+                                <small *ngIf="weightingInForm.controls.carId.errors.cannotContainSpace" >
+                                    ห้ามมีช่องว่าง
+                                </small>
+                            </div>        
+                            
                         </div>
 
                         <!-- div detail -->
                         <div [ngStyle]="{'margin-top': '20px'}">
 
-                            <div class="card col-md-6 " *ngIf="weightingInForm.controls.carId.dirty && !weightingInForm.controls.carId.valid">
-
-                                <div class="media" *ngIf="weightingInForm.controls.carId.errors.required ">
-                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                        <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
-                                        กรุณาใส่ทะเบียนรถ...
-                                    </div>
-                                </div>
-
-                                <div class="media" *ngIf="weightingInForm.controls.carId.errors.minlength ">
-                                    <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                        <h4 class="media-heading">ข้อมูลไม่ถูกต้อง</h4>
-                                        กรุณาใส่เลขทะเบียนตั้งแต่ {{weightingInForm.controls.carId.errors.minlength.requiredLength}} จำนวน
-                                    </div>
-                                </div>
-                            </div>
                             <!-- If true value-->
                             <div class="card col-md-6" *ngIf="!weightingInForm.controls.carId.errors ">
                                 <div class="media">
@@ -73,6 +72,7 @@
                                     id="customerId" 
                                     name="customerId" 
                                     placeholder="รหัสลูกค้า..." 
+                                    autocomplete="off"
                                     formControlName="customerId">
                         </div>
 
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <pre class="margin-20">{{ weightingInForm.controls.customerId.errors | json }}</pre>    
+                               
                         </div>
                     </div>
                     <!-- end row 2 -->

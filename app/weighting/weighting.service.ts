@@ -53,8 +53,8 @@ export class WeightingService {
                     newCar.product,
                     newCar.weightIn,
                     newCar.weightOut,
-                    newCar._dateIn,
-                    newCar._dateOut,
+                    newCar.dateIn,
+                    newCar.dateOut,
                     newCar.customerId));
 
             console.log('To created weight-In.');
