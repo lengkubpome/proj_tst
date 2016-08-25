@@ -1,4 +1,3 @@
-/// <reference path="../../../typings/index.d.ts" />
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {
     FormBuilder,
@@ -11,7 +10,7 @@ import { WeightingCar, WeightingService } from '../weighting.service';
 import { Customer, CustomersService } from '../../customers/customers.service';
 import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
 import {Observable} from 'rxjs/Rx';
-
+declare var $:JQueryStatic;
 
 
 
