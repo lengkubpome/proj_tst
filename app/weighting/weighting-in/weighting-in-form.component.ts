@@ -1,6 +1,6 @@
+/// <reference path="../../../typings/index.d.ts" />
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {
-    REACTIVE_FORM_DIRECTIVES,
     FormBuilder,
     FormGroup,
     FormControl,
@@ -8,8 +8,11 @@ import {
 } from '@angular/forms';
 
 import { WeightingCar, WeightingService } from '../weighting.service';
+import { Customer, CustomersService } from '../../customers/customers.service';
 import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
 import {Observable} from 'rxjs/Rx';
+
+
 
 
 @Component({
@@ -19,17 +22,18 @@ import {Observable} from 'rxjs/Rx';
 })
 export class WeightingInFormComponent implements OnInit {
 
-    weightingInForm: FormGroup;
-
     @Output() save: EventEmitter<Object> = new EventEmitter(true);
     @Output() cancel = new EventEmitter();
 
+    customer: Customer;
+    weightingInForm: FormGroup;
     model = new WeightingCar(12, null, null, null, null, null, null, null);
-
     products = ['เหล็ก', 'กระดาษ', 'กระป๋อง', 'สังกะสี'];
 
     constructor(private _weightingService: WeightingService,
-        private _fb: FormBuilder) {
+        private _fb: FormBuilder,
+        private _customerService: CustomersService) {
+
         this.weightingInForm = this._fb.group({
             carId: ['', Validators.compose([
                 <any>Validators.required,
@@ -42,6 +46,8 @@ export class WeightingInFormComponent implements OnInit {
             product: ['', Validators.required],
             weight: ['', Validators.required]
         });
+
+        var keyupCarId = Observable.fromEvent($("carId"), "keyup");
     }
 
     ngOnInit() {
@@ -52,7 +58,8 @@ export class WeightingInFormComponent implements OnInit {
             (<FormControl>this.weightingInForm.controls['weight'])
                 .updateValue(_.random(99999), { emitModelToViewChange: true });
         });
-
+        // TODO: แก้ไขการแสดงข้อมูลลูกค้า
+        this._customerService.getCustomer(1).then(customer => this.customer = customer);
     }
 
     onSubmit(data: any) {
