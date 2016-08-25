@@ -58,8 +58,17 @@ export class WeightingInFormComponent implements OnInit {
             (<FormControl>this.weightingInForm.controls['weight'])
                 .updateValue(_.random(99999), { emitModelToViewChange: true });
         });
+
+
+
         // TODO: แก้ไขการแสดงข้อมูลลูกค้า
         this._customerService.getCustomer(1).then(customer => this.customer = customer);
+    }
+
+    onKeyCarID(){
+        if((<HTMLInputElement>event.target).value ===' ')
+            {}
+            
     }
 
     onSubmit(data: any) {

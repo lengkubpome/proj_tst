@@ -26,10 +26,11 @@
                                     required 
                                     name="carId" 
                                     formControlName="carId"
-                                    
                                     placeholder="เลขทะเบียน..."
-                                    autocomplete="off"                               
+                                    autocomplete="off"   
+                                    (keyup)="onKeyCarID()"                            
                                     >
+
                             <ul  [ngStyle]="{'color': 'red'}"
                                 *ngIf="weightingInForm.controls.carId.dirty && !weightingInForm.controls.carId.valid">
                                 <li *ngIf="weightingInForm.controls.carId.errors.required ">
