@@ -14,6 +14,9 @@ import {Observable} from 'rxjs/Rx';
 declare var $:JQueryStatic;
 =======
 
+<<<<<<< HEAD
+>>>>>>> parent of 296507a... ...
+=======
 >>>>>>> parent of 296507a... ...
 
 @Component({
