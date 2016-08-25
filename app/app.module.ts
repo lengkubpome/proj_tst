@@ -1,4 +1,3 @@
-/// <reference path="../typings/index.d.ts" />
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  }    from '@angular/forms';
@@ -13,9 +12,6 @@ import { ScrollbarComponent } from './shared/scrollbar.component';
 import { NavbarComponent } from './navbar.component';
 import { WeightingModule } from './weighting/weighting.module';
 import { HeroesModule } from './heroes/heroes.module';
-
-// Service
-import { CustomersService } from './customers/customers.service';
 
 @NgModule({
   imports: [
@@ -34,8 +30,7 @@ import { CustomersService } from './customers/customers.service';
     NavbarComponent
   ],
   providers: [
-    appRoutingProviders,
-    CustomersService
+    appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -30,18 +30,18 @@
                                     placeholder="เลขทะเบียน..."
                                     autocomplete="off"                               
                                     >
-                            <ul  [ngStyle]="{'color': 'red'}"
+                            <div  [ngStyle]="{'color': 'red'}"
                                 *ngIf="weightingInForm.controls.carId.dirty && !weightingInForm.controls.carId.valid">
-                                <li *ngIf="weightingInForm.controls.carId.errors.required ">
+                                <small *ngIf="weightingInForm.controls.carId.errors.required ">
                                     กรุณาใส่ทะเบียนรถ...
-                                </li>
-                                <li *ngIf="weightingInForm.controls.carId.errors.minlength" >
+                                </small>
+                                <small *ngIf="weightingInForm.controls.carId.errors.minlength" >
                                     กรุณาใส่เลขทะเบียนตั้งแต่ {{weightingInForm.controls.carId.errors.minlength.requiredLength}} จำนวน
-                                </li>
-                                <li *ngIf="weightingInForm.controls.carId.errors.cannotContainSpace" >
+                                </small>
+                                <small *ngIf="weightingInForm.controls.carId.errors.cannotContainSpace" >
                                     ห้ามมีช่องว่าง
-                                </li>
-                            </ul>        
+                                </small>
+                            </div>        
                             
                         </div>
 
@@ -80,6 +80,7 @@
                             <!-- div detail -->
                             
                             <div class="card col-md-6" *ngIf="weightingInForm.controls.customerId.valid">
+                            <!--<div class="card col-md-6">-->
                                 <div class="media">
                                     <div class="media-left media-middle">
                                         <a>
@@ -87,7 +88,7 @@
                                         </a>
                                     </div>
                                     <div class="media-body" [ngStyle]="{'padding-top': '10px'}">
-                                        <h4 class="media-heading">{{customer.name}}</h4>
+                                        <h4 class="media-heading">นายเกียรติพงศ์ แซ่ตั้ง</h4>
                                         ลูกค้าทั่วไป,ร้านเขื่อนอุบลรัตน์
                                     </div>
                                     <div class="media-right" [ngStyle]="{'padding': '20px 10px'}">
