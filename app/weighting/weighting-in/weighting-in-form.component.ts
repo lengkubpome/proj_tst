@@ -10,7 +10,11 @@ import {
 import { WeightingCar, WeightingService } from '../weighting.service';
 import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
 import {Observable} from 'rxjs/Rx';
+<<<<<<< HEAD
 declare var $:JQueryStatic;
+=======
+
+>>>>>>> parent of 296507a... ...
 
 @Component({
     selector: 'weighting-in-form',
