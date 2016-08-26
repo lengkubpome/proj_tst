@@ -65,10 +65,9 @@ export class WeightingInFormComponent implements OnInit {
         this._customerService.getCustomer(1).then(customer => this.customer = customer);
     }
 
-    onKeyCarID(){
-        if((<HTMLInputElement>event.target).value ===' ')
-            {}
-            
+    onKeyCarID() {
+
+
     }
 
     onSubmit(data: any) {
@@ -82,7 +81,7 @@ export class WeightingInFormComponent implements OnInit {
 
     onCancel() {
         this.cancel.emit({});
-        console.log("Clicked Cancel");
+        console.log('Clicked Cancel');
 
     }
 
