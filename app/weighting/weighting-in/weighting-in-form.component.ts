@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/index.d.ts" />
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
@@ -30,8 +30,10 @@ export class WeightingInFormComponent implements OnInit {
     model = new WeightingCar(12, null, null, null, null, null, null, null);
     products = ['เหล็ก', 'กระดาษ', 'กระป๋อง', 'สังกะสี'];
 
-    constructor(private _weightingService: WeightingService,
+    constructor(
+        private _el: ElementRef,
         private _fb: FormBuilder,
+        private _weightingService: WeightingService,
         private _customerService: CustomersService) {
 
         this.weightingInForm = this._fb.group({
@@ -65,8 +67,11 @@ export class WeightingInFormComponent implements OnInit {
         this._customerService.getCustomer(1).then(customer => this.customer = customer);
     }
 
+    private el: HTMLElement;
+    
     onKeyCarID() {
-
+        this.el = this._el.nativeElement;
+        console.log(this.el);
 
     }
 
