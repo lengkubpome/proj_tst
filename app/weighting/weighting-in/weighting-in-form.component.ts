@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/index.d.ts" />
-import { Component, OnInit, Output, EventEmitter, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
@@ -12,16 +12,12 @@ import { Customer, CustomersService } from '../../customers/customers.service';
 import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
 import {Observable} from 'rxjs/Rx';
 
-
-
-
 @Component({
     selector: 'weighting-in-form',
     templateUrl: 'app/weighting/weighting-in/weighting-in-form.component.html',
     styleUrls: ['app/weighting/weighting-in/weighting-in-form.component.css']
 })
 export class WeightingInFormComponent implements OnInit {
-
     @Output() save: EventEmitter<Object> = new EventEmitter(true);
     @Output() cancel = new EventEmitter();
 
@@ -44,12 +40,11 @@ export class WeightingInFormComponent implements OnInit {
             ])
             ],
             customerId: ['', <any>Validators.required],
-            dateIn: ['', Validators.pattern('[A-Za-z]{5}')],
+            dateIn: [''],
             product: ['', Validators.required],
             weight: ['', Validators.required]
         });
 
-        // var keyupCarId = Observable.fromEvent($("carId"), "keyup");
     }
 
     ngOnInit() {
@@ -68,7 +63,7 @@ export class WeightingInFormComponent implements OnInit {
     }
 
     private el: HTMLElement;
-    
+
     onKeyCarID() {
         this.el = this._el.nativeElement;
         console.log(this.el);

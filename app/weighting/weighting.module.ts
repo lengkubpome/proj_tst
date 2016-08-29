@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { WeightingComponent } from './weighting.component';
 import { WeightingInComponent } from './weighting-in/weighting-in.component';
 import { WeightingInFormComponent } from './weighting-in/weighting-in-form.component';
-import { InputCarIdDirective } from './directives/car-id.directive';
+import { InputCarIdDirective } from './directives/car-id-input.directive';
 
 import { WeightingService } from './weighting.service';
 

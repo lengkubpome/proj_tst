@@ -28,7 +28,7 @@
                                     formControlName="carId"
                                     placeholder="เลขทะเบียน..."
                                     autocomplete="off"   
-                                    (keyup)="onKeyCarID()"                          
+                                    inputCarID
                                     >
 
                             <ul  [ngStyle]="{'color': 'red'}"
@@ -39,7 +39,7 @@
                                 <li *ngIf="weightingInForm.controls.carId.errors.minlength" >
                                     กรุณาใส่เลขทะเบียนตั้งแต่ {{weightingInForm.controls.carId.errors.minlength.requiredLength}} จำนวน
                                 </li>
-                                <li *ngIf="weightingInForm.controls.carId.errors.cannotContainSpace" >
+                                <li *ngIf="weightingInForm.controls.carId.errors.formValidator" >
                                     ห้ามมีช่องว่าง
                                 </li>
                             </ul>        
@@ -175,8 +175,8 @@
                 <div class="col-md-12">
                     <div class="pull-right">
                         <!--Summut button-->
-                        <!--<button type="button" class="btn btn-primary" type="submit" [disabled]="!weightingInForm.valid">-->
-                        <button type="button" class="btn btn-primary" type="submit">
+                        <button type="button" class="btn btn-primary" type="submit" [disabled]="!weightingInForm.valid">
+                        <!--<button type="button" class="btn btn-primary" type="submit">-->
                         <span class="glyphicon glyphicon-save " aria-hidden="true"></span> บันทึกรถชั่งเข้า</button>
 
                         <button type="button" class="btn btn-error " (click)="onCancel()">

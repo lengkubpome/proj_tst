@@ -9,6 +9,10 @@ export class InputCarIdDirective {
     constructor(el: ElementRef) {
         this.el = el.nativeElement;
         Observable.fromEvent(this.el, 'keyup')
+            .map(e => {
+                let v = e.target.value;
+                e.target.value = 'xxxx';
+            })
             .subscribe(data => console.log(data));
 
     }
