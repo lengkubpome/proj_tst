@@ -56,23 +56,22 @@ export class WeightingInFormComponent implements OnInit {
                 .updateValue(_.random(99999), { emitModelToViewChange: true });
         });
 
-
-
         // TODO: แก้ไขการแสดงข้อมูลลูกค้า
         this._customerService.getCustomer(1).then(customer => this.customer = customer);
+
     }
 
-    private el: HTMLElement;
+    onKeyCarID(event: KeyboardEvent) {
 
-    onKeyCarID() {
-        this.el = this._el.nativeElement;
-        console.log(this.el);
+        if (event.keyCode = 32) {
+            event.preventDefault();
+        }
 
     }
 
     onSubmit(data: any) {
 
-        var result = this._weightingService.createWeightInCar(data.value);
+        let result = this._weightingService.createWeightInCar(data.value);
         this.save.emit(result);
 
         console.log(JSON.stringify(data.value, null, 2));
