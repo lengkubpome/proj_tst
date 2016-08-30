@@ -63,7 +63,7 @@ export class WeightingInFormComponent implements OnInit {
 
     onKeyCarID(event: KeyboardEvent) {
 
-        if (event.keyCode = 32) {
+        if (event.keyCode == 32) {
             event.preventDefault();
         }
 
