@@ -64,9 +64,15 @@ export class WeightingInFormComponent implements OnInit {
 
     private el: HTMLElement;
 
+<<<<<<< HEAD
     onKeyCarID() {
         this.el = this._el.nativeElement;
         console.log(this.el);
+=======
+        if (event.keyCode == 32) {
+            event.preventDefault();
+        }
+>>>>>>> origin/master
 
     }
 
