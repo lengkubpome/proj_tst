@@ -28,7 +28,7 @@
                                     formControlName="carId"
                                     placeholder="เลขทะเบียน..."
                                     autocomplete="off"   
-                                    inputCarID
+                                    (keypress)="onKeyCarID($event)"
                                     >
 
                             <ul  [ngStyle]="{'color': 'red'}"
