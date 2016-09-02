@@ -10,7 +10,7 @@ import {
 import { WeightingCar, WeightingService } from '../weighting.service';
 import { Customer, CustomersService } from '../../customers/customers.service';
 import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
-import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'weighting-in-form',
@@ -23,7 +23,6 @@ export class WeightingInFormComponent implements OnInit {
 
     customer: Customer;
     weightingInForm: FormGroup;
-    // model = new WeightingCar(12, null, null, null, null, null, null, null);
     products = ['เหล็ก', 'กระดาษ', 'กระป๋อง', 'สังกะสี'];
     constructor(
         private _el: ElementRef,
@@ -87,7 +86,7 @@ export class WeightingInFormComponent implements OnInit {
     }
 
     // TODO: Remove this when we're done
-    get diagnostic() { return JSON.stringify(this.model); }
+    // get diagnostic() { return JSON.stringify(this.model); }
 
 }
 

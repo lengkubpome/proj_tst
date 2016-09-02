@@ -13,6 +13,9 @@
         <!--menu bar-->
         <div class="row">
           <div class="col-md-12">
+
+            <weight-realtime></weight-realtime>
+
             <button type="button" 
                     class="btn btn-primary" 
                     [class.hidden]="createWeightIn" 
@@ -28,19 +31,12 @@
         <br>
           <div class="row" >
           <div class="col-md-12">
-            <div class="card">
-              <div class="card-block">
-                <h4 class="card-title ">{{selectCar.carId}}</h4>
-                <p class="card-text">{{selectCar.product}}</p>
 
-                <a href="#" class="card-link">Go somewhere</a>
-              </div>
-            </div>
+            <!-- Show Weighting-OUT Form -->
+            <weighting-out [car]="selectCar" *ngIf="showWeightOut"></weighting-out>
+          
           </div>
         </div>
-
- 
-
 
       <!-- weighting-IN Form -->
       <weighting-in-form *ngIf="createWeightIn" (save)="onSaveWeightingIn($event)" (cancel)="onCancelWeightingIn()" ></weighting-in-form>
@@ -50,7 +46,6 @@
 
     <!-- Side right-->
     <div class="col-xs-14 col-sm-6 col-md-3">
-
       <!-- Weighting-In List -->
       <weighting-in (select)="selectWeightingIn($event)"></weighting-in>
       <!-- End of Weighting-In -->
