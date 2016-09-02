@@ -1,11 +1,11 @@
-/// <reference path="../../../typings/index.d.ts" />
-import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef} from '@angular/core';
 import {
     FormBuilder,
     FormGroup,
     FormControl,
     Validators
 } from '@angular/forms';
+
 
 import { WeightingCar, WeightingService } from '../weighting.service';
 import { Customer, CustomersService } from '../../customers/customers.service';
@@ -23,19 +23,22 @@ export class WeightingInFormComponent implements OnInit {
 
     customer: Customer;
     weightingInForm: FormGroup;
-    model = new WeightingCar(12, null, null, null, null, null, null, null);
+    // model = new WeightingCar(12, null, null, null, null, null, null, null);
     products = ['เหล็ก', 'กระดาษ', 'กระป๋อง', 'สังกะสี'];
-
     constructor(
         private _el: ElementRef,
         private _fb: FormBuilder,
         private _weightingService: WeightingService,
         private _customerService: CustomersService) {
+    }
+
+    ngOnInit() {
+
 
         this.weightingInForm = this._fb.group({
             carId: ['', Validators.compose([
                 <any>Validators.required,
-                <any>Validators.minLength(6),
+                <any>Validators.minLength(3),
                 WeightingInFormValidators.cannotContainSpace
             ])
             ],
@@ -45,9 +48,6 @@ export class WeightingInFormComponent implements OnInit {
             weight: ['', Validators.required]
         });
 
-    }
-
-    ngOnInit() {
 
         let timer = Observable.timer(2000, 1000);
         timer.subscribe(() => {
@@ -63,25 +63,15 @@ export class WeightingInFormComponent implements OnInit {
 
     onKeyCarID(event: KeyboardEvent) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    onKeyCarID() {
-        this.el = this._el.nativeElement;
-        console.log(this.el);
-=======
-        if (event.keyCode == 32) {
+        if (event.keyCode === 32) {
             event.preventDefault();
         }
->>>>>>> origin/master
-=======
-        if (event.keyCode = 32) {
-            event.preventDefault();
-        }
->>>>>>> parent of 9f8959d... Revert "30/8/2016 v1"
 
     }
 
     onSubmit(data: any) {
+        //บันทึกเวลาชั่งเข้า
+        (<FormControl>this.weightingInForm.controls['dateIn']).updateValue(new Date());
 
         let result = this._weightingService.createWeightInCar(data.value);
         this.save.emit(result);

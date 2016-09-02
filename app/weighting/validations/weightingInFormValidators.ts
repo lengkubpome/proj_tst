@@ -10,14 +10,14 @@ export class WeightingInFormValidators {
     }
 
 
-    formValidator(val: FormControl): any {
-        console.log('formValidator ' + val.value);
+    // formValidator(val: FormControl): any {
+    //     console.log('formValidator ' + val.value);
         
-        if (val.value.match(/.*[^0-9].*/)) {
-            console.log('match');
+    //     if (val.value.match(/.*[^0-9].*/)) {
+    //         console.log('match');
 
-            return { inval: true };
-        }
-    }
+    //         return { inval: true };
+    //     }
+    // }
 
 }

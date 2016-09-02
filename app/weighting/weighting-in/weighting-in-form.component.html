@@ -30,7 +30,6 @@
                                     autocomplete="off"   
                                     (keypress)="onKeyCarID($event)"
                                     >
-
                             <ul  [ngStyle]="{'color': 'red'}"
                                 *ngIf="weightingInForm.controls.carId.dirty && !weightingInForm.controls.carId.valid">
                                 <li *ngIf="weightingInForm.controls.carId.errors.required ">
@@ -165,7 +164,7 @@
 
             
  <!--// TODO: Remove this when we're done-->
-            <pre>Form value: <br>{{weightingInForm.value | json}}</pre>
+            <!--<pre>Form value: <br>{{weightingInForm.value | json}}</pre>-->
         
         </div>
 
