@@ -10,7 +10,7 @@ import {
 import { WeightingCar, WeightingService } from '../weighting.service';
 import { Customer, CustomersService } from '../../customers/customers.service';
 import { WeightingInFormValidators } from '../validations/weightingInFormValidators';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs/RX';
 
 @Component({
     selector: 'weighting-in-form',
@@ -44,16 +44,16 @@ export class WeightingInFormComponent implements OnInit {
             customerId: ['', <any>Validators.required],
             dateIn: [''],
             product: ['', Validators.required],
-            weight: ['', Validators.required]
+            weightIn: ['', Validators.required]
         });
 
 
         let timer = Observable.timer(2000, 1000);
-        timer.subscribe(() => {
-            // TODO: controls has change.
-            (<FormControl>this.weightingInForm.controls['weight'])
-                .updateValue(_.random(99999), { emitModelToViewChange: true });
-        });
+        // timer.subscribe(() => {
+        //     // TODO: controls has change.
+        //     (<FormControl>this.weightingInForm.controls['weight'])
+        //         .updateValue(_.random(99999), { emitModelToViewChange: true });
+        // });
 
         // TODO: แก้ไขการแสดงข้อมูลลูกค้า
         this._customerService.getCustomer(1).then(customer => this.customer = customer);
