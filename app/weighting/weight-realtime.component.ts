@@ -6,16 +6,16 @@ import {Observable} from 'rxjs/Observable';
     moduleId: module.id,
     selector: 'weight-realtime',
     template: `
-         <label class="control-label pull-right" for="weight">น้ำหนักเข้า</label>
+         
                    
             <input type="text" 
                 class="form-control input-lg" 
                 style="text-align: right;font-size: 35px; font-weight: bold;"  
                 name="weight"
                 disabled
-                [(ngModel)]= "weight"
+                value="{{weight}}"
             >
-    <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->            
+   
     `,
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => WeightRealTimeComponent), multi: true },

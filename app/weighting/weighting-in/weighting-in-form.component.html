@@ -73,7 +73,8 @@
                                     name="customerId" 
                                     placeholder="รหัสลูกค้า..." 
                                     autocomplete="off"
-                                    formControlName="customerId">
+                                    formControlName="customerId" 
+                                    >
                         </div>
 
                         <div [ngStyle]="{'margin-top': '25px'}">
@@ -146,7 +147,10 @@
 
                 <!-- weight-->
                 <div class="col-md-3">
+                    <label class="control-label pull-right" for="weight">น้ำหนักเข้า</label>
                     <weight-realtime></weight-realtime>
+ <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->            
+ 
 <!--
                  <label class="control-label pull-right" for="weight">น้ำหนักเข้า</label>
                     <div class="form-group has-error ">
