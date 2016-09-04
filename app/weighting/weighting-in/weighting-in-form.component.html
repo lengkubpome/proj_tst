@@ -148,7 +148,11 @@
                 <!-- weight-->
                 <div class="col-md-3">
                     <label class="control-label pull-right" for="weight">น้ำหนักเข้า</label>
-                    <weight-realtime></weight-realtime>
+                    <weight-realtime 
+                        formControlName="weightIn"
+
+                        [counterValue]="3"
+                    ></weight-realtime>
  <!--<span class="glyphicon glyphicon-ok form-control-feedback" style="top:25px"></span>-->            
  
 <!--
@@ -170,7 +174,7 @@
 
             
  <!--// TODO: Remove this when we're done-->
-            <!--<pre>Form value: <br>{{weightingInForm.value | json}}</pre>-->
+            <pre>Form value: <br>{{weightingInForm.value | json}}</pre>
         
         </div>
 
