@@ -6,7 +6,7 @@ import { WeightingComponent } from './weighting.component';
 import { WeightingInComponent } from './weighting-in/weighting-in.component';
 import { WeightingInFormComponent } from './weighting-in/weighting-in-form.component';
 import { WeightingOutComponent } from './weighting-out/weighting-out-form.component';
-import { WeightRealTimeComponent } from './weight-realtime.component';
+import { WeightComponent } from './weight/weight.component';
 
 import { WeightingService } from './weighting.service';
 
@@ -26,7 +26,7 @@ import { weightingRouting } from './weighting.routing';
     WeightingInComponent,
     WeightingInFormComponent,
     WeightingOutComponent,
-    WeightRealTimeComponent
+    WeightComponent
   ],
   providers: [
     WeightingService

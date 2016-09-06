@@ -17,7 +17,7 @@
             <button type="button" 
                     class="btn btn-primary" 
                     [class.hidden]="createWeightIn" 
-                    (click)="showWeightingInForm()" >
+                    (click)="newWeightingInForm()" >
             <span class="glyphicon glyphicon-save " aria-hidden="true"></span> ชั่งน้ำหนักรถเข้า</button>
             
             
@@ -29,16 +29,16 @@
         <br>
           <div class="row" >
           <div class="col-md-12">
+          
+            <!-- weighting-IN Form -->
+            <weighting-in-form *ngIf="createWeightIn" (save)="onSaveWeightingIn($event)" (cancel)="onCancelWeightingIn()" ></weighting-in-form>
 
             <!-- Show Weighting-OUT Form -->
             <weighting-out [car]="selectCar" *ngIf="showWeightOut"></weighting-out>
-          
+       
+
           </div>
         </div>
-
-      <!-- weighting-IN Form -->
-      <weighting-in-form *ngIf="createWeightIn" (save)="onSaveWeightingIn($event)" (cancel)="onCancelWeightingIn()" ></weighting-in-form>
-
     </div>
     <!--end column-->
 

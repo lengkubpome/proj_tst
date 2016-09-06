@@ -6,7 +6,7 @@ import { WeightingCar, WeightingService } from '../weighting.service';
   template: `
 
       <div class="page-header" style="margin: 0px 0 18px; ">
-        <h4>List of Car-In <span class="badge">{{weightInLenth}}</span></h4>
+        <h4>รายการรถเข้า <span class="badge">{{weightInLenth}}</span></h4>
       </div>
 
       <!--search bar-->

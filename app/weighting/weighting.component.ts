@@ -28,13 +28,13 @@ export class WeightingComponent implements OnInit, OnDestroy {
 
     selectWeightingIn(_weightingIn: WeightingCar) {
         this.selectCar = _weightingIn;
-        this.showWeightOut = !this.showWeightOut;
+        this.showWeightOut = true;
         if (this.createWeightIn) {
             this.createWeightIn = !this.createWeightIn;
         }
     }
 
-    showWeightingInForm() {
+    newWeightingInForm() {
         this.createWeightIn = !this.createWeightIn;
         if (this.showWeightOut) {
             this.showWeightOut = !this.showWeightOut;

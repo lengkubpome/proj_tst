@@ -15,7 +15,7 @@ export function createCounterRangeValidator(maxValue: any, minValue: any) {
     };
 
     return (c.value > +maxValue || c.value < +minValue) ? err : null;
-  }
+  };
 }
 
 
@@ -26,45 +26,42 @@ export function createCounterRangeValidator(maxValue: any, minValue: any) {
       <input type="text" 
         class="form-control input-lg" 
         style="text-align: right;font-size: 35px; font-weight: bold;"  
-        name="weightIn"
+        name="weight"
         disabled
-        value="{{weightIn}}"
-                  >
+        [(ngModel)]="weight"
+                  > 
     `,
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => WeightRealTimeComponent), multi: true },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => WeightRealTimeComponent), multi: true }
+    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => WeightComponent), multi: true },
+    { provide: NG_VALIDATORS, useExisting: forwardRef(() => WeightComponent), multi: true }
   ]
 })
-export class WeightRealTimeComponent implements OnInit, ControlValueAccessor {
+export class WeightComponent implements OnInit, ControlValueAccessor, OnChanges {
 
-  weightIn: number;
+  weight: number;
 
   propagateChange: any = () => { };
   validateFn: any = () => { };
-  // @Input('counterValue') _counterValue = 0;
-  // @Input() counterRangeMax: any;
-  // @Input() counterRangeMin: any;
 
   constructor() { }
 
   ngOnInit() {
     let timer = Observable.timer(0, 1000);
     timer.subscribe(() => {
-      this.weightIn = _.random(99999);
-      this.propagateChange(this.weightIn);
+      this.weight = _.random(99999);
+      this.propagateChange(this.weight);
     });
   }
 
-  // ngOnChanges(inputs: any) {
-  //   if (inputs.counterRangeMax || inputs.counterRangeMin) {
-  //     this.validateFn = createCounterRangeValidator(this.counterRangeMax, this.counterRangeMin);
-  //   }
-  // }
+  ngOnChanges(inputs: any) {
+    // if (inputs.counterRangeMax || inputs.counterRangeMin) {
+    //   this.validateFn = createCounterRangeValidator(this.counterRangeMax, this.counterRangeMin);
+    // }
+  }
 
   writeValue(value: any) {
     if (value) {
-      this.weightIn = value;
+      this.weight = value;
     }
   }
 
