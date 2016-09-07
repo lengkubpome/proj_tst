@@ -2,30 +2,23 @@
 <form >
 
     <div class="card">
-        <div class="card-header">
-            <button type="button" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>     
-                <!--<span class="caret"></span>-->
-            </button>
-
-            <h3 >บันทึกน้ำหนักรถออก</h3>
-        </div>
 
         <div class="card-block">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8 content">
                     <!-- row 1 -->
-                    <div class="form-group  row">
+                    <div class=" row">
 
                         <div class="col-md-6">
                             <label for="carId">รถชั่งเข้า</label>
-                            <input type="text" class="form-control" 
+                            <input type="text" class="form-control input-x" 
                                     id="carId" 
                                     required 
                                     name="carId"                               
                                     placeholder="เลขทะเบียน..."
-                                    disabled
+      
                                     value="{{car.carId}}"  
+                                    
                                     >
                             <!--<ul  [ngStyle]="{'color': 'red'}"
                                 *ngIf="weightingInForm.controls.carId.dirty && !weightingInForm.controls.carId.valid">
